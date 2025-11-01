@@ -1,0 +1,40 @@
+.Bg-toggler{
+    /* color: green; */
+    color: aliceblue;
+    height: 2.8rem;
+    width: 2.8rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    z-index: 100;
+    transition: var(--transition);
+    background: rgb(49, 198, 59);
+}
+.Bg-toggler p{
+   font-size: 9px;
+   color: aliceblue;
+   /* background:green; */
+   background: rgb(49, 198, 59);
+}
+.Bg-togglerxx{
+    /* color: green; */
+    color: rgb(255, 255, 255);
+ }
+ /* .Bg-togglerxx:hover{
+    color: rgb(255, 255, 255);
+ } */
+
+
+.Bg-toggler:hover{
+    background: rgb(49, 198, 59);
+    color: rgb(234, 237, 234);
+}
+.Bg-toggler p:hover{
+    display: flex;
+ }
