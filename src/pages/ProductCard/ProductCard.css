@@ -234,7 +234,6 @@
   /* width: 130px; */
 }
 
-
   .product-info {
     padding: 1rem;
   }
@@ -247,3 +246,53 @@
     font-size: 1.25rem;
   }
 }
+
+
+
+
+
+
+@media (max-width: 375px) {
+
+  .product-card {
+  background: rgb(216, 73, 73);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  /* height: 60%; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+  .product-info {
+    padding: 0.8rem;
+  }
+
+  .product-name {
+    font-size: 0.7375rem;
+  }
+
+  .current-price {
+    font-size: 0.7rem;
+  }
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+

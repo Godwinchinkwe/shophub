@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+// import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './HeroSlider.css';
 
 const slides = [
@@ -45,13 +45,13 @@ const HeroSlider = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
+  // const nextSlide = () => {
+  //   setCurrentSlide((prev) => (prev + 1) % slides.length);
+  // };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  // const prevSlide = () => {
+  //   setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  // };
 
   return (
     <div className="hero-slider">
@@ -88,12 +88,12 @@ const HeroSlider = () => {
       </AnimatePresence>
 
       {/* Navigation */}
-      <button className="hero-nav hero-prev" onClick={prevSlide}>
+      {/* <button className="hero-nav hero-prev" onClick={prevSlide}>
         <FaChevronLeft />
-      </button>
-      <button className="hero-nav hero-next" onClick={nextSlide}>
+      </button> */}
+      {/* <button className="hero-nav hero-next" onClick={nextSlide}>
         <FaChevronRight />
-      </button>
+      </button> */}
 
       {/* Dots */}
       <div className="hero-dots">
