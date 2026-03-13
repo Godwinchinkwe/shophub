@@ -4,7 +4,9 @@
   overflow: hidden;
   border-radius: 12px;
   margin-bottom: 3rem;
+  padding: 0%;
 }
+
 
 .hero-slide {
   position: relative;

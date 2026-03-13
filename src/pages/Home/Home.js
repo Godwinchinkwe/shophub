@@ -14,12 +14,8 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      <div className="container">
-        {/* Hero Slider */}
+      <div className="containerxyz">
         <HeroSlider />
-
-       
-    
 
         {/* Featured Products */}
         <section className="featured-section">

@@ -1,6 +1,11 @@
 .home-page {
   padding: 2rem 0;
 }
+.containerxyz {
+  max-width: 100%;
+  /* margin: 0 auto; */
+  padding: 0%;
+}
 
 /* Section Styles */
 .section-title {
@@ -28,6 +33,7 @@
 /* Categories Section */
 .categories-section {
   margin-bottom: 4rem;
+  padding: 1.45rem;
 }
 
 .categories-grid {
@@ -40,6 +46,7 @@
 /* Featured Products */
 .featured-section {
   margin-bottom: 4rem;
+  padding: 1.45rem;
 }
 
 /* .products-grid {
@@ -52,6 +59,7 @@
 /* Promotional Section */
 .promo-section {
   margin-bottom: 4rem;
+  padding: 1.45rem;
 }
 
 .promo-grid {
