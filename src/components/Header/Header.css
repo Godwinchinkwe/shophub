@@ -51,14 +51,16 @@
 
 /* Main Header */
 .main-header {
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
   background: white;
 }
 
 .header-content {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  /* gap: 2rem; */
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 /* Logo */
@@ -85,6 +87,7 @@
 .search-bar {
   flex: 1;
   max-width: 600px;
+  min-width: 200px;
   display: flex;
   position: relative;
 }
@@ -125,6 +128,7 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+   flex-shrink: 0;
 }
 
 .header-action {
@@ -234,15 +238,14 @@
     display: none;
   }
 
-  .header-content {
+  /* .header-content {
     gap: 1rem;
-  }
+  } */
 
   .search-bar {
     order: 3;
     flex-basis: 100%;
     max-width: 100%;
-    margin-top: 1rem;
   }
 
   .mobile-menu-toggle {

@@ -70,7 +70,7 @@ const Footer = () => {
             <div className="footer-column">
               <div className="footer-logo">
                 <FaShoppingBag />
-                <span>ShopHub</span>
+                <span>GeeHub</span>
               </div>
               <p className="footer-description">
                 Your one-stop online shopping destination for electronics, fashion, 
