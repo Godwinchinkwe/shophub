@@ -102,12 +102,13 @@ select {
 }
 
 .btn-primary {
-  background: var(--primary-color);
+   background: rgb(67, 67, 193);
   color: white;
 }
 
 .btn-primary:hover {
-  background: var(--primary-dark);
+  /* background: var(--primary-dark); */
+  background:#af9d28;
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(37, 99, 235, 0.2);
 }
@@ -128,7 +129,7 @@ select {
 }
 
 .btn-outline:hover {
-  background: var(--primary-color);
+  /* background: var(--primary-color); */
   color: white;
 }
 
@@ -163,11 +164,11 @@ select {
   --danger-color: #ef4444;
   
   /* Background Colors */
-  --bg-primary: #ffffff;
+  /* --bg-primary: #ffffff;
   --bg-secondary: #f9fafb;
   --bg-tertiary: #f3f4f6;
   --card-bg: #ffffff;
-  --hover-bg: #f3f4f6;
+  --hover-bg: #f3f4f6; */
   
   /* Text Colors */
   --text-color: #1f2937;
@@ -327,17 +328,17 @@ button {
   transition: all 0.3s ease;
 }
 
-.btn-primary {
+/* .btn-primary {
   background: var(--primary-color);
   color: white;
   box-shadow: 0 2px 8px var(--shadow-color);
-}
+} */
 
-.btn-primary:hover {
+/* .btn-primary:hover {
   background: var(--primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow-hover);
-}
+} */
 
 .btn-secondary {
   background: var(--bg-tertiary);

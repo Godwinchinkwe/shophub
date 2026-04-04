@@ -6,12 +6,12 @@ import {
   FaShoppingBag, 
   FaShoppingCart, 
   FaHeart, 
-  FaUser, 
+  // FaUser, 
   FaSearch,
   FaBars,
   FaTimes,
-  FaPhone,
-  FaEnvelope
+  // FaPhone,
+  // FaEnvelope
 } from 'react-icons/fa';
 import './Header.css';
 
@@ -34,12 +34,16 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+      function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
   return (
     <header className="header">
       {/* Top Bar */}
       <div className="top-bar">
         <div className="container">
-          <div className="top-bar-content">
+          {/* <div className="top-bar-content">
             <div className="top-bar-left">
               <span><FaPhone /> +2348064318819</span>
               <span><FaEnvelope /> Devodinakachi@gmail.com</span>
@@ -48,7 +52,7 @@ const Header = () => {
               <Link to="/account"><FaUser /> My Account</Link>
               <Link to="/faq">Help</Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -57,7 +61,7 @@ const Header = () => {
         <div className="container">
           <div className="header-content">
             {/* Logo */}
-            <Link to="/" className="logo">
+            <Link onClick={scrollToTop} to="/" className="logo">
               <FaShoppingBag />
               <span>GeeHub</span>
             </Link>
@@ -82,7 +86,7 @@ const Header = () => {
                 whileTap={{ scale: 0.9 }}
                 className="header-action"
               >
-                <Link to="/account">
+                <Link onClick={scrollToTop}to="/account">
                   <FaHeart />
                   {wishlistItems.length > 0 && (
                     <span className="badge">{wishlistItems.length}</span>
@@ -95,7 +99,7 @@ const Header = () => {
                 whileTap={{ scale: 0.9 }}
                 className="header-action cart-action"
               >
-                <Link to="/cart">
+                <Link onClick={scrollToTop} to="/cart">
                   <FaShoppingCart />
                   {getCartCount() > 0 && (
                     <span className="badge">{getCartCount()}</span>
@@ -115,14 +119,14 @@ const Header = () => {
       <nav className={`main-nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
         <div className="container">
           <ul className="nav-links">
-            <li><Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link></li>
-            <li><Link to="/products" onClick={() => setIsMobileMenuOpen(false)}>All Products</Link></li>
-            <li><Link to="/products?category=electronics" onClick={() => setIsMobileMenuOpen(false)}>Electronics</Link></li>
-            <li><Link to="/products?category=fashion" onClick={() => setIsMobileMenuOpen(false)}>Fashion</Link></li>
-            <li><Link to="/products?category=home" onClick={() => setIsMobileMenuOpen(false)}>Home & Living</Link></li>
-            <li><Link to="/products?category=beauty" onClick={() => setIsMobileMenuOpen(false)}>Beauty</Link></li>
-            <li><Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link></li>
-            <li><Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link></li>
+            <li><Link to="/" onClick={() => { scrollToTop();setIsMobileMenuOpen(false)}}>Home</Link></li>
+            <li><Link to="/products" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>All Products</Link></li>
+            <li><Link to="/products?category=electronics" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Electronics</Link></li>
+            <li><Link to="/products?category=fashion" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Fashion</Link></li>
+            <li><Link to="/products?category=home" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Home & Living</Link></li>
+            <li><Link to="/products?category=beauty" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Beauty</Link></li>
+            <li><Link to="/about" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>About</Link></li>
+            <li><Link to="/contact" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Contact</Link></li>
           </ul>
         </div>
       </nav>

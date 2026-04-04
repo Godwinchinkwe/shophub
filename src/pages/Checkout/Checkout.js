@@ -72,7 +72,7 @@ const Checkout = () => {
               </div>
 
               <button type="submit" className="btn btn-primary submit-btn">
-                <FaLock /> Place Order - ${(getCartTotal() * 1.1).toFixed(2)}
+                <FaLock /> Place Order -  ₦{(getCartTotal() * 1.1).toFixed(2)}
               </button>
             </form>
           </div>
@@ -92,11 +92,11 @@ const Checkout = () => {
               ))}
             </div>
             <div className="summary-totals">
-              <div className="summary-row"><span>Subtotal</span><span>${getCartTotal().toFixed(2)}</span></div>
+              <div className="summary-row"><span>Subtotal</span><span> ₦{getCartTotal().toFixed(2)}</span></div>
               <div className="summary-row"><span>Shipping</span><span>FREE</span></div>
-              <div className="summary-row"><span>Tax</span><span>${(getCartTotal() * 0.1).toFixed(2)}</span></div>
+              <div className="summary-row"><span>Tax</span><span> ₦{(getCartTotal() * 0.0).toFixed(2)}</span></div>
               <div className="summary-divider" />
-              <div className="summary-row summary-total"><span>Total</span><span>${(getCartTotal() * 1.1).toFixed(2)}</span></div>
+              <div className="summary-row summary-total"><span>Total</span><span> ₦{(getCartTotal() * 1.1).toFixed(2)}</span></div>
             </div>
           </div>
         </div>

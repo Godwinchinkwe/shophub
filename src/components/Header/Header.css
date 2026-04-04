@@ -9,12 +9,12 @@
 }
 
 /* Top Bar */
-.top-bar {
+/* .top-bar {
   background: var(--bg-dark);
   color: white;
   padding: 0.5rem 0;
   font-size: 0.875rem;
-}
+} */
 
 .top-bar-content {
   display: flex;

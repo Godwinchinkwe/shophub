@@ -67,7 +67,7 @@ const Cart = () => {
     const bankInfo = {
     accountName: "Godwin Odinakachi Chinkwe",
     accountNumber: "8064318819",
-    bankName: "Paycom ",
+    bankName: "Paycom Opay ",
     routingNumber: "987654321"
   };
 
@@ -97,6 +97,9 @@ const Cart = () => {
       </div>
     );
   }
+        function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 
 
@@ -151,7 +154,7 @@ const Cart = () => {
                 
                 <div className="cart-item-details">
                   <h3>{item.name}</h3>
-                  <p className="cart-item-price">${item.price.toFixed(2)}</p>
+                  <p className="cart-item-price">₦{item.price.toFixed(2)}</p>
                 </div>
 
                 <div className="cart-item-quantity">
@@ -165,7 +168,7 @@ const Cart = () => {
                 </div>
 
                 <div className="cart-item-total">
-                  ${(item.price * item.quantity).toFixed(2)}
+                  ₦{(item.price * item.quantity).toFixed(2)}
                 </div>
 
                 <button
@@ -183,7 +186,7 @@ const Cart = () => {
             
             <div className="summary-row">
               <span>Subtotal</span>
-              <span>${getCartTotal().toFixed(2)}</span>
+              <span> ₦{getCartTotal().toFixed(2)}</span>
             </div>
             
             <div className="summary-row">
@@ -191,26 +194,26 @@ const Cart = () => {
               <span>FREE</span>
             </div>
             
-            <div className="summary-row">
+            {/* <div className="summary-row">
               <span>Tax</span>
-              <span>${(getCartTotal() * 0.1).toFixed(2)}</span>
-            </div>
+              <span> ₦{(getCartTotal() * 0.).toFixed(2)}</span>
+            </div> */}
             
             <div className="summary-divider" />
             
             <div className="summary-row summary-total">
               <span>Total</span>
-              <span>${(getCartTotal() * 1.1).toFixed(2)}</span>
+              <span> ₦{(getCartTotal() * 1.0).toFixed(2)}</span>
             </div>
 
             <button
               className="btn btn-primary checkout-btn"
               onClick={handleCheckout}
             >
-              Proceed to Checkout
+              Proceed to Order
             </button>
 
-            <Link to="/products" className="continue-shopping">
+            <Link onClick={scrollToTop} to="/products" className="continue-shopping">
               Continue Shopping
             </Link>
           </div>
@@ -260,8 +263,8 @@ const Cart = () => {
                       <FiCreditCard />
                     </div>
                     <div className="payment-method-content">
-                      <h3>Credit / Debit Card</h3>
-                      <p>Pay securely with your card</p>
+                      <h3>Comfirm on Whatsapp</h3>
+                      {/* <p>Pay securely with your card</p> */}
                     </div>
                     <div className="payment-method-radio">
                       <input
@@ -360,7 +363,7 @@ const Cart = () => {
                   whileHover={selectedPayment ? { scale: 1.02 } : {}}
                   whileTap={selectedPayment ? { scale: 0.98 } : {}}
                 >
-                  {selectedPayment === 'card' ? 'Proceed to Payment' : 'Confirm Bank Transfer'}
+                  {selectedPayment === 'card' ? 'Proceed to whatsapp' : 'Confirm Bank Transfer'}
                 </motion.button>
               </motion.div>
             </motion.div>

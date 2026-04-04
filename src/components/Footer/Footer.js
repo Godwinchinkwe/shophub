@@ -23,6 +23,9 @@ const Footer = () => {
       setEmail('');
     }
   };
+        function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
   return (
     <footer className="footer">
@@ -96,11 +99,11 @@ const Footer = () => {
             <div className="footer-column">
               <h3>Quick Links</h3>
               <ul className="footer-links">
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/products">Shop</Link></li>
-                <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/faq">FAQ</Link></li>
+                <li><Link onClick={scrollToTop} to="/">Home</Link></li>
+                <li><Link onClick={scrollToTop} to="/products">Shop</Link></li>
+                <li><Link onClick={scrollToTop} to="/about">About Us</Link></li>
+                <li><Link onClick={scrollToTop} to="/contact">Contact</Link></li>
+                <li><Link onClick={scrollToTop} to="/faq">FAQ</Link></li>
               </ul>
             </div>
 
@@ -108,11 +111,11 @@ const Footer = () => {
             <div className="footer-column">
               <h3>Categories</h3>
               <ul className="footer-links">
-                <li><Link to="/products?category=electronics">Electronics</Link></li>
-                <li><Link to="/products?category=fashion">Fashion</Link></li>
-                <li><Link to="/products?category=home">Home & Living</Link></li>
-                <li><Link to="/products?category=beauty">Beauty</Link></li>
-                <li><Link to="/products?category=sports">Sports</Link></li>
+                <li><Link onClick={scrollToTop} to="/products?category=electronics">Electronics</Link></li>
+                <li><Link onClick={scrollToTop} to="/products?category=fashion">Fashion</Link></li>
+                <li><Link onClick={scrollToTop} to="/products?category=home">Home & Living</Link></li>
+                <li><Link onClick={scrollToTop} to="/products?category=beauty">Beauty</Link></li>
+                <li><Link onClick={scrollToTop} to="/products?category=sports">Sports</Link></li>
               </ul>
             </div>
 
@@ -139,11 +142,11 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="container">
           <div className="footer-bottom-content">
-            <p>&copy; 2024 ShopHub. All rights reserved.</p>
+            <p>&copy; 2026 GeeHub. All rights reserved.</p>
             <div className="footer-bottom-links">
-              <Link to="/faq">Privacy Policy</Link>
-              <Link to="/faq">Terms of Service</Link>
-              <Link to="/contact">Support</Link>
+              <Link onClick={scrollToTop} to="/faq">Privacy Policy</Link>
+              <Link onClick={scrollToTop} to="/faq">Terms of Service</Link>
+              <Link onClick={scrollToTop} to="/contact">Support</Link>
             </div>
           </div>
         </div>

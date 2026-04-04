@@ -11,7 +11,7 @@ export const productsDatabase = [
     rating: 4.5,
     reviews: 342,
     description: 'Premium wireless headphones with active noise cancellation and 30-hour battery life.',
-    inStock: true,
+    inStock:true,
     badge: 'sale',
     specifications: {
       'Battery Life': '30 hours',

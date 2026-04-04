@@ -1,14 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+// import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../context/CartContext';
 import { FaShoppingCart, FaHeart, FaStar, FaRegHeart } from 'react-icons/fa';
 import './ProductCard.css';
 import { useNavigate } from 'react-router-dom';
+// import { useState } from 'react';
 
 const ProductCard = ({ product }) => {
   const { addToCart, addToWishlist, removeFromWishlist, isInWishlist } = useCart();
   const navigate = useNavigate();
   const inWishlist = isInWishlist(product.id);
+  // const [showSuccess, setShowSuccess] = useState(false);
 
   // const handleAddToCart = () => {
   //   addToCart(product);
@@ -111,20 +114,25 @@ const ProductCard = ({ product }) => {
 
         <div className="product-footer">
           <div className="product-price">
-            <span className="current-price">${product.price.toFixed(2)}</span>
+            <span className="current-price"> ₦{product.price.toFixed(2)}</span>
             {product.oldPrice && (
-              <span className="old-price">${product.oldPrice.toFixed(2)}</span>
+              <span className="old-price"> ₦{product.oldPrice.toFixed(2)}</span>
             )}
           </div>
-
+          {/* <AnimatePresence> */}
+{/* {showSuccess && ( */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="add-to-cart-btn"
             onClick={handleAddToCart}
           >
+            {/* ✓ Added to cart! */}
             <FaShoppingCart /> Add to Cart
           </motion.button>
+           {/* )} */}
+           {/* </AnimatePresence> */}
+
         </div>
       </div>
     </motion.div>
