@@ -8,9 +8,13 @@ import { productsDatabase, categories } from '../../data/productsDatabase';
 import './Home.css';
 
 const Home = () => {
+
+        function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
   const featuredProducts = productsDatabase
     .filter(p => p.badge === 'bestseller' || p.badge === 'new')
-    .slice(0, 8);
+    .slice(0, 10);
 
   return (
     <div className="home-page">
@@ -28,7 +32,7 @@ const Home = () => {
             >
               Featured Products
             </motion.h2>
-            <Link to="/products" className="btn btn-outline">
+            <Link onClick={scrollToTop} to="/products" className="btn btn-outline">
               View All Products
             </Link>
           </div>
