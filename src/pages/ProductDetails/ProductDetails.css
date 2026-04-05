@@ -131,7 +131,7 @@
 .product-description {
   color: var(--text-secondary);
   line-height: 1.8;
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
 }
 
 .size-selector,

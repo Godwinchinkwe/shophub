@@ -10,7 +10,7 @@ const Products = () => {
   const [searchParams] = useSearchParams();
   const [filteredProducts, setFilteredProducts] = useState(productsDatabase);
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [priceRange, setPriceRange] = useState([0, 2000]);
+  const [priceRange, setPriceRange] = useState([0, 100000]);
   const [sortBy, setSortBy] = useState('featured');
   const [showFilters, setShowFilters] = useState(false);
 
