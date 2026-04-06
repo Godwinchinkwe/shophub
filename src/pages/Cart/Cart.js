@@ -168,7 +168,7 @@ const Cart = () => {
                 </div>
 
                 <div className="cart-item-total">
-                  ₦{(item.price * item.quantity).toFixed(2)}
+                  ₦{Number(item.price * item.quantity).toFixed(2).toLocaleString()}
                 </div>
 
                 <button
@@ -186,7 +186,7 @@ const Cart = () => {
             
             <div className="summary-row">
               <span>Subtotal</span>
-              <span> ₦{getCartTotal().toFixed(2)}</span>
+              <span> ₦{Number(getCartTotal().toFixed(2)).toLocaleString()}</span>
             </div>
             
             <div className="summary-row">
@@ -203,7 +203,7 @@ const Cart = () => {
             
             <div className="summary-row summary-total">
               <span>Total</span>
-              <span> ₦{(getCartTotal() * 1.0).toFixed(2)}</span>
+              <span> ₦{Number(getCartTotal() * 1.0).toFixed(2).toLocaleString()}</span>
             </div>
 
             <button

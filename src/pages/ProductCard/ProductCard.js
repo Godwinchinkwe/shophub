@@ -11,7 +11,6 @@ const ProductCard = ({ product }) => {
   const { addToCart, addToWishlist, removeFromWishlist, isInWishlist } = useCart();
   const navigate = useNavigate();
   const inWishlist = isInWishlist(product.id);
-  // const [showSuccess, setShowSuccess] = useState(false);
 
   // const handleAddToCart = () => {
   //   addToCart(product);
@@ -110,28 +109,25 @@ const ProductCard = ({ product }) => {
           <span className="reviews-count">({product.reviews})</span>
         </div>
 
-        <p className="product-description">{product.description}</p>
+        {/* <p className="product-description">{product.description}</p> */}
 
         <div className="product-footer">
           <div className="product-price">
-            <span className="current-price"> ₦{product.price.toFixed(2)}</span>
+            <span className="current-price"> ₦{Number(product.price).toLocaleString()}</span>
             {product.oldPrice && (
-              <span className="old-price"> ₦{product.oldPrice.toFixed(2)}</span>
+              <span className="old-price"> ₦{Number(product.oldPrice).toLocaleString()}</span>
             )}
           </div>
-          {/* <AnimatePresence> */}
-{/* {showSuccess && ( */}
+      
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="add-to-cart-btn"
             onClick={handleAddToCart}
           >
-            {/* ✓ Added to cart! */}
             <FaShoppingCart /> Add to Cart
           </motion.button>
-           {/* )} */}
-           {/* </AnimatePresence> */}
+        
 
         </div>
       </div>

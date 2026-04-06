@@ -37,21 +37,21 @@ const Footer = () => {
               <FaTruck className="feature-icon" />
               <div>
                 <h4>Free Shipping</h4>
-                <p>On orders over $50</p>
+                <p>On orders in Lagos</p>
               </div>
             </div>
             <div className="feature-item">
               <FaShieldAlt className="feature-icon" />
               <div>
                 <h4>Secure Payment</h4>
-                <p>100% protected</p>
+                <p>Pay On Delivery</p>
               </div>
             </div>
             <div className="feature-item">
               <FaCreditCard className="feature-icon" />
               <div>
                 <h4>Easy Returns</h4>
-                <p>30-day return policy</p>
+                <p>2-3days return policy</p>
               </div>
             </div>
             <div className="feature-item">

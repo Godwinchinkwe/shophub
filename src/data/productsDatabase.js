@@ -1,16 +1,46 @@
 // Product Database with 8 Categories
+import round from "./ProductImage/round-quartz.png"
+import watch1 from "./ProductImage/watch1.png"
+import watch3 from "./ProductImage/watch3.png"
+import watch2 from "./ProductImage/watch2.png"
+import watch4 from "./ProductImage/watch4.png"
+import watch5 from "./ProductImage/watch5.png"
+import watch6 from "./ProductImage/watch6.png"
+import watch7 from "./ProductImage/watch7.png"
+import watch8 from "./ProductImage/watch8.png"
+import watch9 from "./ProductImage/watch9.png"
+
 export const productsDatabase = [
   // Electronics (Category 1)
   {
     id: 1,
-    name: 'Wireless Bluetooth Headphones',
-    category: 'electronics',
-    price: 89.99,
-    oldPrice: 129.99,
-    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500',
+    name: 'Couple Fashion Romantic Business',
+    category: 'watches',
+    price: 18000,
+    oldPrice:24000,
+    image: watch1,
     rating: 4.5,
     reviews: 342,
-    description: 'Premium wireless headphones with active noise cancellation and 30-hour battery life.',
+    description: 'Romantic Business Leisure Roman Scale Pointer Quartz Watch Set Suitable for Couples Daily Decoration Girlfriend Boyfriend Birthday Gift Graduation Season Party Christmas Halloween Valentines Day Perfect Gift for Girlfriend',
+    inStock:true,
+    badge: 'sale',
+    specifications: {
+      'Battery Life': '30 hours',
+      'Connectivity': 'Bluetooth 5.0',
+      'Noise Cancellation': 'Active ANC',
+      'Weight': '250g'
+    }
+  },
+    {
+    id: 31,
+    name: 'Unisex Luxury quartz',
+    category: 'watches',
+    price: 18000,
+    oldPrice:24000,
+    image: watch3,
+    rating: 4.5,
+    reviews: 342,
+    description: 'Luxury Quartz Watch with Roman Numerals, Date & Day Display, Green Dial & Golden-Tone Markers, -Accented Zinc Alloy Case & Bracelet, Casual & Formal Business Watch, Suitable for Women&women',
     inStock:true,
     badge: 'sale',
     specifications: {
@@ -22,33 +52,33 @@ export const productsDatabase = [
   },
   {
     id: 2,
-    name: '4K Ultra HD Smart TV 55"',
-    category: 'electronics',
-    price: 599.99,
-    oldPrice: 799.99,
-    image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=500',
+    name: 'Round Quartz wrist watch',
+    category: 'watches',
+    price: 12000,
+    oldPrice: 18000,
+    image: round,
     rating: 4.7,
     reviews: 289,
-    description: '55-inch 4K Smart TV with HDR support and streaming apps built-in.',
+    description: '4pcs New Mens Luxury Fashion Round Quartz Watch and Braided Bracelet Combo Set for Daily Wear, Parties, Valentines Day, Men, Dad, Gift for Friends and Family. Gift Box Not Included',
     inStock: true,
-    badge: 'sale',
+    badge: 'new',
     specifications: {
-      'Screen Size': '55 inches',
-      'Resolution': '4K Ultra HD',
+      'Colour': 'Brown',
+      'Resolution': 'Luxury Fashion',
       'Smart Features': 'Yes',
       'HDR': 'HDR10'
     }
   },
   {
     id: 3,
-    name: 'Gaming Laptop Pro',
-    category: 'electronics',
-    price: 50509.99,
+    name: 'Geneva Elegant Quartz',
+    category: 'watches',
+    price: 15509.,
     oldPrice: null,
-    image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=500',
+    image: watch2,
     rating: 4.8,
     reviews: 156,
-    description: 'High-performance gaming laptop with RTX graphics and 144Hz display.',
+    description:'A Stylish And Elegant Quartz Watch Featuring a Round Display, Complemented by a Fashionable Plastic Strap. with Its Electronic Movement, It Is Precise And Durable ma',
     inStock: true,
     badge: 'new',
     specifications: {
@@ -60,14 +90,14 @@ export const productsDatabase = [
   },
   {
     id: 4,
-    name: 'Smartphone Pro Max',
-    category: 'electronics',
-    price: 999.99,
+    name: 'Set of Men Stylish watch',
+    category: 'watches',
+    price: 23406,
     oldPrice: null,
-    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500',
+    image: watch4,
     rating: 4.6,
     reviews: 512,
-    description: 'Latest flagship smartphone with 5G, triple camera system, and all-day battery.',
+    description: 'Set of 4 MenS Stylish Watches, Designed for Business, Featuring an Alloy Case, Quartz Movement, Faux Leather And Alloy Straps, Powered by a Non-Rechargeable Button Battery, an Ideal Present for Holidays And FatherS Day',
     inStock: true,
     badge: 'bestseller',
     specifications: {
@@ -77,6 +107,102 @@ export const productsDatabase = [
       '5G': 'Yes'
     }
   },
+    {
+    id: 32,
+    name: 'Set of Men Stylish watch',
+    category: 'watches',
+    price: 11240,
+    oldPrice: null,
+    image: watch5,
+    rating: 4.6,
+    reviews: 512,
+    description: '4pcs/set, Men-s Business Fashion Yellow Digital English Small Dial Pointer Round Quartz Watch & Brown Beads Woven String Bracelet Set, Gift for Him',
+    inStock: true,
+    badge: 'sales',
+    specifications: {
+      'Display': '6.7" OLED',
+      'Camera': '108MP Triple',
+      'Battery': '5000mAh',
+      '5G': 'Yes'
+    }
+  },
+      {
+    id: 33,
+    name: 'Geneva Equisite For Men',
+    category: 'watches',
+    price: 12370,
+    oldPrice: null,
+    image: watch7,
+    rating: 4.6,
+    reviews: 512,
+    description: '2pcs/Set Exquisite MenS Quartz Timepieces And Fashionable Stainless Steel Watch Chains - Fashionable, Durable, - Perfect Gift for ValentineS Day, FatherS Day for Dad Or Boyfriend',
+    inStock: true,
+    badge: 'sales',
+    specifications: {
+      'Display': '6.7" OLED',
+      'Camera': '108MP Triple',
+      'Battery': '5000mAh',
+      '5G': 'Yes'
+    }
+  },
+        {
+    id: 34,
+    name: 'Geneva Equisite For Men',
+    category: 'watches',
+    price: 13955,
+    oldPrice: null,
+    image: watch6,
+    rating: 4.6,
+    reviews: 512,
+    description: '2pcs/Set Exquisite MenS Quartz Timepieces And Fashionable Stainless Steel Watch Chains - Fashionable, Durable, - Perfect Gift for ValentineS Day, FatherS Day for Dad Or Boyfriend',
+    inStock: true,
+    badge: 'sales',
+    specifications: {
+      'Display': '6.7" OLED',
+      'Camera': '108MP Triple',
+      'Battery': '5000mAh',
+      '5G': 'Yes'
+    }
+  },
+          {
+    id: 35,
+    name: 'Fensir Equisite For Men',
+    category: 'watches',
+    price: 19955,
+    oldPrice: null,
+    image: watch8,
+    rating: 4.6,
+    reviews: 512,
+    description: 'A Trendy Casual Watch for Men, Part of The MenS Work Log Collection, Featuring a Middle Eastern Style, Roman Numerals, a Calendar, And a Steel Band. Ideal for Work, Shopping, And Parties, Making It a Great Gift Option for Holidays',
+    inStock: true,
+    badge: 'sales',
+    specifications: {
+      'Display': '6.7" OLED',
+      'Camera': '108MP Triple',
+      'Battery': '5000mAh',
+      '5G': 'Yes'
+    }
+  },
+          {
+    id: 36,
+    name: 'Diamond Equisite Unisex',
+    category: 'watches',
+    price: 11495,
+    oldPrice: null,
+    image: watch9,
+    rating: 4.6,
+    reviews: 512,
+    description: 'MenS 6pcs Casual Fashion Quartz Watch Set - Includes a Round Dial Watch, Square Pendant Bracelet, Necklace, Earrings, And Ring, Ideal for Sports Trends, a Great Gift for Him',
+    inStock: true,
+    badge: 'sales',
+    specifications: {
+      'Display': '6.7" OLED',
+      'Camera': '108MP Triple',
+      'Battery': '5000mAh',
+      '5G': 'Yes'
+    }
+  },
+
 
   // Fashion & Clothing (Category 2)
   {
@@ -588,7 +714,7 @@ export const productsDatabase = [
 ];
 
 export const categories = [
-  { id: 'electronics', name: 'Electronics', icon: 'FaLaptop' },
+  { id: 'watches', name: 'Wrist Watches', icon: 'FaLaptop' },
   { id: 'fashion', name: 'Fashion & Clothing', icon: 'FaTshirt' },
   { id: 'home', name: 'Home & Living', icon: 'FaHome' },
   { id: 'beauty', name: 'Beauty & Personal Care', icon: 'FaSpa' },

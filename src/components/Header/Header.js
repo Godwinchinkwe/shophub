@@ -121,7 +121,7 @@ const Header = () => {
           <ul className="nav-links">
             <li><Link to="/" onClick={() => { scrollToTop();setIsMobileMenuOpen(false)}}>Home</Link></li>
             <li><Link to="/products" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>All Products</Link></li>
-            <li><Link to="/products?category=electronics" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Electronics</Link></li>
+            <li><Link to="/products?category=watches" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Wrist Watches</Link></li>
             <li><Link to="/products?category=fashion" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Fashion</Link></li>
             <li><Link to="/products?category=home" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Home & Living</Link></li>
             <li><Link to="/products?category=beauty" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Beauty</Link></li>

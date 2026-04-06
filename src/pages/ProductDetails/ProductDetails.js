@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { FiHeart, FiShoppingCart, FiZoomIn, FiX, FiStar } from 'react-icons/fi';
+// import { FiHeart, FiShoppingCart, FiZoomIn, FiX, FiStar,} from 'react-icons/fi';
+import { FiShoppingCart, FiZoomIn, FiX, FiStar,} from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../context/CartContext';
 import ProductCard from "../ProductCard/ProductCard"
@@ -10,7 +11,9 @@ import './ProductDetails.css';
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { addToCart, toggleWishlist, isInWishlist } = useCart();
+  // const { addToCart, toggleWishlist,  isInWishlist } = useCart();
+  const { addToCart } = useCart();
+    // const inWishlist = isInWishlist(product.id);
 
   const product = productsDatabase.find(p => p.id === parseInt(id));
   
@@ -21,6 +24,7 @@ const ProductDetails = () => {
   const [showZoom, setShowZoom] = useState(false);
   const [activeTab, setActiveTab] = useState('description');
   const [showSuccess, setShowSuccess] = useState(false);
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -54,6 +58,16 @@ const ProductDetails = () => {
     addToCart(product, quantity, selectedSize, selectedColor);
     navigate('/checkout');
   };
+
+
+//     const handleWishlistToggle = (e) => {
+//  e.stopPropagation();
+//      if (inWishlist) {
+//        removeFromWishlist(product.id);
+//     } else {
+//       addToWishlist(product);
+//     }
+//   };
 
   return (
     <div className="product-details-page">
@@ -99,7 +113,7 @@ const ProductDetails = () => {
             </div>
 
             <div className="price-section">
-              <span className="price"> ₦{product.price.toFixed(2)}</span>
+              <span className="price">  ₦{Number(product.price.toFixed(0)).toLocaleString()}</span>
             </div>
 
             <p className="product-description">{product.description}</p>
@@ -155,6 +169,7 @@ const ProductDetails = () => {
               >
                 <FiShoppingCart /> Add to Cart
               </motion.button>
+
               <motion.button
                 className="btn btn-success buy-now"
                 onClick={handleBuyNow}
@@ -163,14 +178,16 @@ const ProductDetails = () => {
               >
                 Buy Now
               </motion.button>
-              <motion.button
+              {/* <motion.button
                 className={`btn-icon wishlist ${isInWishlist(product.id) ? 'active' : ''}`}
                 onClick={() => toggleWishlist(product)}
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <FiHeart />
-              </motion.button>
+                whileTap={{ scale: 0.9 }} */}
+                {/* // onClick={handleWishlistToggle} */}
+              {/* > */}
+                {/* {inWishlist ? <FiHeart /> : <FaRegHeart />} */}
+            
+              {/* </motion.button> */}
             </div>
 
             <AnimatePresence>
