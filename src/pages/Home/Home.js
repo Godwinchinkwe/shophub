@@ -88,10 +88,11 @@ const Home = () => {
             >
               <div className="promo-content">
                 <span className="promo-label">Special Offer</span>
-                <h3>Electronics Sale</h3>
-                <p>Save up to 40% on selected electronics</p>
-                <Link to="/products?category=electronics" className="btn btn-primary">
-                  Shop Electronics
+                <h3>Luxury wrist Watches Sale</h3>
+                <p>Save up to 40% on selected watches</p>
+                <Link onClick={scrollToTop}
+                   to="/products?category=watches" className="btn btn-primary">
+                  Shop Watches
                 </Link>
               </div>
             </motion.div>

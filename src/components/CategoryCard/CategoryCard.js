@@ -27,8 +27,12 @@ const iconMap = {
 const CategoryCard = ({ category }) => {
   const IconComponent = iconMap[category.icon];
 
+        function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
   return (
-    <Link to={`/products?category=${category.id}`} className="category-card-link">
+    <Link onClick={scrollToTop}to={`/products?category=${category.id}`} className="category-card-link">
       <motion.div
         className="category-card"
         whileHover={{ y: -8, scale: 1.02 }}

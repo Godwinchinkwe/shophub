@@ -3,10 +3,20 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 // import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './HeroSlider.css';
+import watch4 from "../../data/ProductImage/watch4.png"
 
 const slides = [
-  {
+    {
     id: 1,
+    title: 'Luxury watches Sale',
+    subtitle: 'Gadgets & More',
+    description: 'Amazing prices on the latest tech and electronics',
+    image: watch4,
+    cta: 'Shop Watches',
+    link: '/products?category=watches'
+  },
+  {
+    id: 3,
     title: 'Summer Sale',
     subtitle: 'Up to 50% Off',
     description: 'Discover amazing deals on electronics, fashion, and more',
@@ -23,15 +33,7 @@ const slides = [
     cta: 'Explore New',
     link: '/products?filter=new'
   },
-  {
-    id: 3,
-    title: 'Electronics Sale',
-    subtitle: 'Gadgets & More',
-    description: 'Amazing prices on the latest tech and electronics',
-    image: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=1200',
-    cta: 'Shop Electronics',
-    link: '/products?category=electronics'
-  }
+
 ];
 
 const HeroSlider = () => {
