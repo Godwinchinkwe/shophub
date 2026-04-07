@@ -74,13 +74,18 @@ const Products = () => {
   // ✅ FIXED deps
 
   // ✅ CATEGORY → URL SYNC (CRITICAL FIX)
+
   const handleCategoryChange = (cat) => {
-    if (cat === 'all') {
-      setSearchParams({});
-    } else {
-      setSearchParams({ category: cat });
-    }
-  };
+  if (cat === 'all') {
+    setSearchParams({});
+  } else {
+    setSearchParams({ category: cat });
+  }
+
+  setTimeout(() => {
+    setShowFilters(false);
+  }, 150); // smooth transition feel
+};
 
   return (
     <div className="products-page">
