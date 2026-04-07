@@ -166,7 +166,7 @@ export const productsDatabase = [
   },
           {
     id: 35,
-    name: 'Fensir Equisite For Men',
+    name: 'Fensir Exquisite For Men',
     category: 'watches',
     price: 19955,
     oldPrice: null,
@@ -185,7 +185,7 @@ export const productsDatabase = [
   },
           {
     id: 36,
-    name: 'Diamond Equisite Unisex',
+    name: 'Diamond Exquisite Unisex',
     category: 'watches',
     price: 11495,
     oldPrice: null,
@@ -204,17 +204,17 @@ export const productsDatabase = [
   },
 
 
-  // Fashion & Clothing (Category 2)
+  // Accessories (Category 2)
   {
     id: 5,
-    name: 'Classic Leather Jacket',
-    category: 'fashion',
-    price: 199.99,
-    oldPrice: 279.99,
-    image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500',
+    name: 'Leather Braclet - Vintage Infinity Bead',
+    category: 'accessories',
+    price: 4064,
+    oldPrice: 5279,
+    image: 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/fe8e0d36932e182e5899d04d2ab53862.jpg?imageView2/2/w/800/q/70/format/avif',
     rating: 4.4,
     reviews: 234,
-    description: 'Genuine leather jacket with timeless design and premium craftsmanship.',
+    description: 'Mens 4pcs Mobius Loop Denim Faux Leather Bracelet Set - Vintage Infinity Bead Multi-Layer Band for Rock & Carnival Fashion, Band, Faux Leather',
     inStock: true,
     badge: 'sale',
     specifications: {
@@ -226,14 +226,14 @@ export const productsDatabase = [
   },
   {
     id: 6,
-    name: 'Summer Floral Dress',
-    category: 'fashion',
-    price: 79.99,
+    name: 'Retro Minimalist Style Blue Light Blocking Glasses ',
+    category: 'accessories',
+    price: 6329,
     oldPrice: null,
-    image: 'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=500',
+    image: 'https://img.kwcdn.com/product/open/371c91514ca04905ba7c04dfe1fc9ee2-goods.jpeg?imageView2/2/w/800/q/70/format/avif',
     rating: 4.5,
     reviews: 189,
-    description: 'Lightweight floral dress perfect for summer occasions.',
+    description: 'Retro Minimalist Style Blue Light Blocking Glasses with Square Frames And Imitation Wood Grain Temples',
     inStock: true,
     badge: 'new',
     specifications: {
@@ -245,14 +245,14 @@ export const productsDatabase = [
   },
   {
     id: 7,
-    name: 'Premium Running Shoes',
-    category: 'fashion',
-    price: 129.99,
+    name: 'Anti-Blue Light Glasses',
+    category: 'accessories',
+    price: 7160,
     oldPrice: null,
-    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500',
+    image: 'https://img.kwcdn.com/product/fancy/99dcfd9e-f873-4263-8e3f-b94e92814b84.jpg?imageView2/2/w/800/q/70/format/avif',
     rating: 4.7,
     reviews: 445,
-    description: 'Professional running shoes with advanced cushioning technology.',
+    description: 'Anti-Blue Light Glasses - Black Metal Frame with Anti-Eye Strain Lens, Modern Y2K Computer Glasses for Men & Women, Lightweight Metal Frame Eyewear with, Compatible with Smartphones, Tablets, Laptops - Office, Gaming, Everyday Use, Techfriendly Eyewear, Sleek Eyewear Design, Durable Eyeglasses, Office Accessories, Stylish Frames, Sturdy Hinges, Digital Users',
     inStock: true,
     badge: 'bestseller',
     specifications: {
@@ -263,19 +263,57 @@ export const productsDatabase = [
     }
   },
   {
-    id: 8,
-    name: 'Designer Handbag',
-    category: 'fashion',
-    price: 299.99,
-    oldPrice: 399.99,
-    image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500',
+    id: 37,
+    name: 'Cross Faltw Necklace',
+    category: 'accessories',
+    price: 3050,
+    oldPrice: 5302,
+    image: 'https://img.kwcdn.com/product/fancy/79e88309-4617-400c-a3a5-483f3003c119.jpg?imageView2/2/w/800/q/70/format/avif',
     rating: 4.6,
     reviews: 178,
-    description: 'Elegant designer handbag with multiple compartments.',
+    description: 'The Stylish And Exquisite Minimalist Cross Faltw Necklace Is Perfect for Everyday Outfits, Making It an Ideal Accessory For. It Serves As a Perfect Birthday Gift, Anniversary Present, Jewelry Gift, Party Favor, Or Holiday Gift for Women.',
     inStock: true,
     badge: 'sale',
     specifications: {
       'Material': 'Premium Leather',
+      'Compartments': 'Multiple',
+      'Closure': 'Zipper',
+      'Strap': 'Adjustable'
+    }
+  },
+   {
+    id: 38,
+    name: 'Trendy Cross Double Layered Necklace',
+    category: 'accessories',
+    price: 3020,
+    oldPrice: 5302,
+    image: 'https://img.kwcdn.com/product/open/0f7a0dcfadb548c687189a7e7ecb0398-goods.jpeg?imageView2/2/w/800/q/70/format/avif',
+    rating: 4.6,
+    reviews: 178,
+    description: 'The Stylish And Exquisite Minimalist Cross Faltw Necklace Is Perfect for Everyday Outfits, Making It an Ideal Accessory For. It Serves As a Perfect Birthday Gift, Anniversary Present, Jewelry Gift, Party Favor, Or Holiday Gift for Women.',
+    inStock: true,
+    badge: 'sale',
+    specifications: {
+      'Material': 'Premium Leather',
+      'Compartments': 'Multiple',
+      'Closure': 'Zipper',
+      'Strap': 'Adjustable'
+    }
+  },
+   {
+    id: 39,
+    name: 'Unisex Square Glasses',
+    category: 'accessories',
+    price: 4000,
+    oldPrice: 5302,
+    image: 'https://img.kwcdn.com/product/open/c4122d1b0cc54c1c8c81e0f4aa6bd642-goods.jpeg?imageView2/2/w/800/q/70/format/avif',
+    rating: 4.6,
+    reviews: 178,
+    description: 'Unisex Square Glasses That Are Suitable for Everyday Wear, Featuring Clear Lenses And a Lightweight, Comfortable Design',
+    inStock: true,
+    badge: 'sale',
+    specifications: {
+      'Material': 'Clear Lenses ',
       'Compartments': 'Multiple',
       'Closure': 'Zipper',
       'Strap': 'Adjustable'
@@ -715,7 +753,7 @@ export const productsDatabase = [
 
 export const categories = [
   { id: 'watches', name: 'Wrist Watches', icon: 'FaLaptop' },
-  { id: 'fashion', name: 'Fashion & Clothing', icon: 'FaTshirt' },
+  { id: 'accessories', name: 'Accessories', icon: 'FaTshirt' },
   { id: 'home', name: 'Home & Living', icon: 'FaHome' },
   { id: 'beauty', name: 'Beauty & Personal Care', icon: 'FaSpa' },
   { id: 'sports', name: 'Sports & Fitness', icon: 'FaDumbbell' },

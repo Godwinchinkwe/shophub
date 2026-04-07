@@ -89,11 +89,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(29, 78, 216, 0.8) 100%);
+  background: linear-gradient(135deg,  rgba(37, 99, 235, 0.9) 0%, rgba(29, 79, 216, 0.26) 100%);
 }
 
 .promo-large {
-  background-image: url('https://images.unsplash.com/photo-1498049794561-7780e7231661?w=800');
+  background-image: url('../../data/ProductImage/watch4.png');
 }
 
 .promo-small:nth-child(2) {

@@ -122,7 +122,7 @@ const Header = () => {
             <li><Link to="/" onClick={() => { scrollToTop();setIsMobileMenuOpen(false)}}>Home</Link></li>
             <li><Link to="/products" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>All Products</Link></li>
             <li><Link to="/products?category=watches" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Wrist Watches</Link></li>
-            <li><Link to="/products?category=fashion" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Fashion</Link></li>
+            <li><Link to="/products?category=accessories" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Accessories</Link></li>
             <li><Link to="/products?category=home" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Home & Living</Link></li>
             <li><Link to="/products?category=beauty" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Beauty</Link></li>
             <li><Link to="/about" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>About</Link></li>
