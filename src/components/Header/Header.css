@@ -8,13 +8,12 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Top Bar */
-/* .top-bar {
-  background: var(--bg-dark);
-  color: white;
-  padding: 0.5rem 0;
-  font-size: 0.875rem;
-} */
+.nav-links a.active {
+  color: rgb(25, 69, 215);;
+  font-weight: 600;
+  border-bottom: 2px solid #493ad1;
+}
+
 
 .top-bar-content {
   display: flex;

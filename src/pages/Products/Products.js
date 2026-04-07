@@ -7,84 +7,94 @@ import { FaFilter, FaTimes } from 'react-icons/fa';
 import './Products.css';
 
 const Products = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [filteredProducts, setFilteredProducts] = useState(productsDatabase);
-  const [selectedCategory, setSelectedCategory] = useState('all');
   const [priceRange, setPriceRange] = useState([0, 100000]);
   const [sortBy, setSortBy] = useState('featured');
   const [showFilters, setShowFilters] = useState(false);
 
+  // ✅ SINGLE SOURCE OF TRUTH (URL)
+  const category = searchParams.get('category') || 'all';
+  const search = searchParams.get('search');
+  const sale = searchParams.get('sale');
+  const newFilter = searchParams.get('filter');
+
   useEffect(() => {
     let products = [...productsDatabase];
-    
-    // Category filter from URL
-    const category = searchParams.get('category');
-    if (category) {
-      setSelectedCategory(category);
+
+    // ✅ Category filter
+    if (category !== 'all') {
       products = products.filter(p => p.category === category);
     }
-    
-    // Search filter from URL
-    const search = searchParams.get('search');
+
+    // ✅ Search filter (SAFE)
     if (search) {
       products = products.filter(p =>
         p.name.toLowerCase().includes(search.toLowerCase()) ||
-        p.description.toLowerCase().includes(search.toLowerCase())
+        (p.description || '').toLowerCase().includes(search.toLowerCase())
       );
     }
-    
-    // Sale filter from URL
-    const sale = searchParams.get('sale');
+
+    // ✅ Sale filter
     if (sale === 'true') {
       products = products.filter(p => p.badge === 'sale');
     }
-    
-    // New filter from URL
-    const newFilter = searchParams.get('filter');
+
+    // ✅ New filter
     if (newFilter === 'new') {
       products = products.filter(p => p.badge === 'new');
     }
-    
-    // Apply price range
-    products = products.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
-    
-    // Apply sorting
+
+    // ✅ Price range
+    products = products.filter(
+      p => p.price >= priceRange[0] && p.price <= priceRange[1]
+    );
+
+    // ✅ Sorting (IMMUTABLE)
     switch (sortBy) {
       case 'price-low':
-        products.sort((a, b) => a.price - b.price);
+        products = [...products].sort((a, b) => a.price - b.price);
         break;
       case 'price-high':
-        products.sort((a, b) => b.price - a.price);
+        products = [...products].sort((a, b) => b.price - a.price);
         break;
       case 'rating':
-        products.sort((a, b) => b.rating - a.rating);
+        products = [...products].sort((a, b) => b.rating - a.rating);
         break;
       case 'name':
-        products.sort((a, b) => a.name.localeCompare(b.name));
+        products = [...products].sort((a, b) => a.name.localeCompare(b.name));
         break;
       default:
         break;
     }
-    
-    setFilteredProducts(products);
-  }, [searchParams, selectedCategory, priceRange, sortBy]);
 
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-    let products = category === 'all' ? productsDatabase : productsDatabase.filter(p => p.category === category);
-    products = products.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
     setFilteredProducts(products);
+
+  }, [category, search, sale, newFilter, priceRange, sortBy]); 
+  // ✅ FIXED deps
+
+  // ✅ CATEGORY → URL SYNC (CRITICAL FIX)
+  const handleCategoryChange = (cat) => {
+    if (cat === 'all') {
+      setSearchParams({});
+    } else {
+      setSearchParams({ category: cat });
+    }
   };
 
   return (
     <div className="products-page">
       <div className="container">
         <div className="products-layout">
+
           {/* Filters Sidebar */}
           <aside className={`filters-sidebar ${showFilters ? 'show' : ''}`}>
             <div className="filters-header">
               <h3>Filters</h3>
-              <button className="close-filters" onClick={() => setShowFilters(false)}>
+              <button
+                className="close-filters"
+                onClick={() => setShowFilters(false)}
+              >
                 <FaTimes />
               </button>
             </div>
@@ -93,26 +103,29 @@ const Products = () => {
             <div className="filter-group">
               <h4>Categories</h4>
               <div className="filter-options">
+
                 <label className="filter-option">
                   <input
                     type="radio"
                     name="category"
-                    checked={selectedCategory === 'all'}
+                    checked={category === 'all'}
                     onChange={() => handleCategoryChange('all')}
                   />
                   <span>All Products</span>
                 </label>
+
                 {categories.map(cat => (
                   <label key={cat.id} className="filter-option">
                     <input
                       type="radio"
                       name="category"
-                      checked={selectedCategory === cat.id}
+                      checked={category === cat.id}
                       onChange={() => handleCategoryChange(cat.id)}
                     />
                     <span>{cat.name}</span>
                   </label>
                 ))}
+
               </div>
             </div>
 
@@ -124,14 +137,18 @@ const Products = () => {
                   type="number"
                   placeholder="Min"
                   value={priceRange[0]}
-                  onChange={(e) => setPriceRange([+e.target.value, priceRange[1]])}
+                  onChange={(e) =>
+                    setPriceRange([+e.target.value, priceRange[1]])
+                  }
                 />
                 <span>-</span>
                 <input
                   type="number"
                   placeholder="Max"
                   value={priceRange[1]}
-                  onChange={(e) => setPriceRange([priceRange[0], +e.target.value])}
+                  onChange={(e) =>
+                    setPriceRange([priceRange[0], +e.target.value])
+                  }
                 />
               </div>
             </div>
@@ -141,11 +158,20 @@ const Products = () => {
           <div className="products-content">
             <div className="products-header">
               <h1>{filteredProducts.length} Products</h1>
+
               <div className="products-controls">
-                <button className="filter-toggle" onClick={() => setShowFilters(!showFilters)}>
+                <button
+                  className="filter-toggle"
+                  onClick={() => setShowFilters(!showFilters)}
+                >
                   <FaFilter /> Filters
                 </button>
-                <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className="sort-select">
+
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="sort-select"
+                >
                   <option value="featured">Featured</option>
                   <option value="price-low">Price: Low to High</option>
                   <option value="price-high">Price: High to Low</option>
@@ -175,6 +201,7 @@ const Products = () => {
               </div>
             )}
           </div>
+
         </div>
       </div>
     </div>

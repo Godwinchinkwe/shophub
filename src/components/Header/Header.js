@@ -1,17 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { motion } from 'framer-motion';
 import { 
   FaShoppingBag, 
   FaShoppingCart, 
   FaHeart, 
-  // FaUser, 
   FaSearch,
   FaBars,
   FaTimes,
-  // FaPhone,
-  // FaEnvelope
 } from 'react-icons/fa';
 import './Header.css';
 
@@ -19,7 +16,16 @@ const Header = () => {
   const { getCartCount, wishlistItems } = useCart();
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
+
+  // 🔥 Centralized active checker
+  const isActive = (path, queryKey = null, queryValue = null) => {
+    if (queryKey && queryValue) {
+      return location.pathname === path && new URLSearchParams(location.search).get(queryKey) === queryValue;
+    }
+    return location.pathname === path && !location.search;
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -34,39 +40,30 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-      function scrollToTop() {
+  const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+  };
+
+  const handleNavClick = () => {
+    scrollToTop();
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className="header">
-      {/* Top Bar */}
-      <div className="top-bar">
-        <div className="container">
-          {/* <div className="top-bar-content">
-            <div className="top-bar-left">
-              <span><FaPhone /> +2348064318819</span>
-              <span><FaEnvelope /> Devodinakachi@gmail.com</span>
-            </div>
-            <div className="top-bar-right">
-              <Link to="/account"><FaUser /> My Account</Link>
-              <Link to="/faq">Help</Link>
-            </div>
-          </div> */}
-        </div>
-      </div>
 
       {/* Main Header */}
       <div className="main-header">
         <div className="container">
           <div className="header-content">
+
             {/* Logo */}
             <Link onClick={scrollToTop} to="/" className="logo">
               <FaShoppingBag />
               <span>GeeHub</span>
             </Link>
 
-            {/* Search Bar */}
+            {/* Search */}
             <form className="search-bar" onSubmit={handleSearch}>
               <input
                 type="text"
@@ -79,14 +76,10 @@ const Header = () => {
               </button>
             </form>
 
-            {/* Header Actions */}
+            {/* Actions */}
             <div className="header-actions">
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="header-action"
-              >
-                <Link onClick={scrollToTop}to="/account">
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="header-action">
+                <Link onClick={scrollToTop} to="/account">
                   <FaHeart />
                   {wishlistItems.length > 0 && (
                     <span className="badge">{wishlistItems.length}</span>
@@ -94,11 +87,7 @@ const Header = () => {
                 </Link>
               </motion.div>
 
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="header-action cart-action"
-              >
+              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} className="header-action cart-action">
                 <Link onClick={scrollToTop} to="/cart">
                   <FaShoppingCart />
                   {getCartCount() > 0 && (
@@ -111,6 +100,7 @@ const Header = () => {
                 {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
               </button>
             </div>
+
           </div>
         </div>
       </div>
@@ -119,17 +109,91 @@ const Header = () => {
       <nav className={`main-nav ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
         <div className="container">
           <ul className="nav-links">
-            <li><Link to="/" onClick={() => { scrollToTop();setIsMobileMenuOpen(false)}}>Home</Link></li>
-            <li><Link to="/products" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>All Products</Link></li>
-            <li><Link to="/products?category=watches" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Wrist Watches</Link></li>
-            <li><Link to="/products?category=accessories" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Accessories</Link></li>
-            <li><Link to="/products?category=home" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Home & Living</Link></li>
-            <li><Link to="/products?category=beauty" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Beauty</Link></li>
-            <li><Link to="/about" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>About</Link></li>
-            <li><Link to="/contact" onClick={() => {scrollToTop(); setIsMobileMenuOpen(false)}}>Contact</Link></li>
+
+            <li>
+              <Link 
+                to="/" 
+                className={isActive('/') ? 'active' : ''}
+                onClick={handleNavClick}
+              >
+                Home
+              </Link>
+            </li>
+
+            <li>
+              <Link 
+                to="/products" 
+                className={isActive('/products') ? 'active' : ''}
+                onClick={handleNavClick}
+              >
+                All Products
+              </Link>
+            </li>
+
+            <li>
+              <Link 
+                to="/products?category=watches" 
+                className={isActive('/products', 'category', 'watches') ? 'active' : ''}
+                onClick={handleNavClick}
+              >
+                Wrist Watches
+              </Link>
+            </li>
+
+            <li>
+              <Link 
+                to="/products?category=accessories" 
+                className={isActive('/products', 'category', 'accessories') ? 'active' : ''}
+                onClick={handleNavClick}
+              >
+                Accessories
+              </Link>
+            </li>
+
+            <li>
+              <Link 
+                to="/products?category=home" 
+                className={isActive('/products', 'category', 'home') ? 'active' : ''}
+                onClick={handleNavClick}
+              >
+                Home & Living
+              </Link>
+            </li>
+
+            <li>
+              <Link 
+                to="/products?category=beauty" 
+                className={isActive('/products', 'category', 'beauty') ? 'active' : ''}
+                onClick={handleNavClick}
+              >
+                Beauty
+              </Link>
+            </li>
+
+            <li>
+              <Link 
+                to="/about" 
+                className={location.pathname === '/about' ? 'active' : ''}
+                onClick={handleNavClick}
+              >
+                About
+              </Link>
+            </li>
+
+            <li>
+              <Link 
+                to="/contact" 
+                className={location.pathname === '/contact' ? 'active' : ''}
+                onClick={handleNavClick}
+              >
+                Contact
+              </Link>
+            </li>
+
           </ul>
         </div>
       </nav>
+
     </header>
   );
 };
