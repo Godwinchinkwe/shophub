@@ -102,40 +102,6 @@ const Cart = () => {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
     <div className="cart-page">
       <div className="container">
@@ -168,7 +134,7 @@ const Cart = () => {
                 </div>
 
                 <div className="cart-item-total">
-                  ₦{Number(item.price * item.quantity).toFixed(2).toLocaleString()}
+                  ₦{Number(item.price * item.quantity).toLocaleString()}
                 </div>
 
                 <button
@@ -203,7 +169,7 @@ const Cart = () => {
             
             <div className="summary-row summary-total">
               <span>Total</span>
-              <span> ₦{Number(getCartTotal() * 1.0).toFixed(2).toLocaleString()}</span>
+              <span> ₦{Number(getCartTotal() * 1.0).toLocaleString()}</span>
             </div>
 
             <button

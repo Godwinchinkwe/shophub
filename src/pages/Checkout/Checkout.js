@@ -87,16 +87,16 @@ const Checkout = () => {
                     <p>{item.name}</p>
                     <span>Qty: {item.quantity}</span>
                   </div>
-                  <span className="item-price">${(item.price * item.quantity).toFixed(2)}</span>
+                  <span className="item-price"> ₦{Number(item.price * item.quantity).toFixed(2).toLocaleString()}</span>
                 </div>
               ))}
             </div>
             <div className="summary-totals">
-              <div className="summary-row"><span>Subtotal</span><span> ₦{getCartTotal().toFixed(2)}</span></div>
+              <div className="summary-row"><span>Subtotal</span><span> ₦{Number(getCartTotal)().toFixed(2).toLocaleString()}</span></div>
               <div className="summary-row"><span>Shipping</span><span>FREE</span></div>
               <div className="summary-row"><span>Tax</span><span> ₦{(getCartTotal() * 0.0).toFixed(2)}</span></div>
               <div className="summary-divider" />
-              <div className="summary-row summary-total"><span>Total</span><span> ₦{(getCartTotal() * 1.1).toFixed(2)}</span></div>
+              <div className="summary-row summary-total"><span>Total</span><span> ₦{Number(getCartTotal() * 1.1).toFixed(2).toLocaleString()}</span></div>
             </div>
           </div>
         </div>
