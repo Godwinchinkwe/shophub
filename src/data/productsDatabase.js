@@ -183,7 +183,7 @@ export const productsDatabase = [
       '5G': 'Yes'
     }
   },
-          {
+  {
     id: 36,
     name: 'Diamond Exquisite Unisex',
     category: 'watches',
@@ -202,6 +202,25 @@ export const productsDatabase = [
       '5G': 'Yes'
     }
   },
+  {
+    id: 45,
+    name: '5pcs Mens Quartz Watch & Bracelet Set',
+    category: 'watches',
+    price: 12499,
+    oldPrice: null,
+    image: 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/76c1a3a25d3f92edc74fa31199fe1d21.jpg?imageView2/2/w/800/q/70/format/avif',
+    rating: 4.6,
+    reviews: 512,
+    description: '5pcs Mens Fashion Quartz Watch and Bracelet Set, Designed for Business,, Quartz Movement, Faux Leather And Alloy Straps, Powered by a Non-Rechargeable Button Battery, an Ideal Present for Holidays And FatherS Day',
+    inStock: true,
+    badge: 'sales',
+    specifications: {
+      'Display': '6.7" OLED',
+      'Camera': '108MP Triple',
+      'Battery': '5000mAh',
+      '5G': 'Yes'
+    }
+  },
 
 
   // Accessories (Category 2)
@@ -209,7 +228,7 @@ export const productsDatabase = [
     id: 5,
     name: 'Leather Braclet - Vintage Infinity Bead',
     category: 'accessories',
-    price: 4064,
+    price: 3500,
     oldPrice: 5279,
     image: 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/fe8e0d36932e182e5899d04d2ab53862.jpg?imageView2/2/w/800/q/70/format/avif',
     rating: 4.4,
@@ -301,6 +320,25 @@ export const productsDatabase = [
     }
   },
    {
+    id: 40,
+    name: 'Oil-Dripped Cross Pendant Designed',
+    category: 'accessories',
+    price: 3500,
+    oldPrice: 5302,
+    image: 'https://img.kwcdn.com/product/fancy/eed49df3-3a5c-41fc-bbcc-665e4f21853a.jpg?imageView2/2/w/800/q/70/format/avif',
+    rating: 4.6,
+    reviews: 178,
+    description: 'A Minimalist Oil-Dripped Cross Pendant Designed in a Baroque Style, Exuding a Sense of Sophistication And Versatility for MenS Fashion',
+    inStock: true,
+    badge: 'sale',
+    specifications: {
+      'Material': 'Clear Lenses ',
+      'Compartments': 'Multiple',
+      'Closure': 'Zipper',
+      'Strap': 'Adjustable'
+    }
+  },
+   {
     id: 39,
     name: 'Unisex Square Glasses',
     category: 'accessories',
@@ -310,6 +348,101 @@ export const productsDatabase = [
     rating: 4.6,
     reviews: 178,
     description: 'Unisex Square Glasses That Are Suitable for Everyday Wear, Featuring Clear Lenses And a Lightweight, Comfortable Design',
+    inStock: true,
+    badge: 'sale',
+    specifications: {
+      'Material': 'Clear Lenses ',
+      'Compartments': 'Multiple',
+      'Closure': 'Zipper',
+      'Strap': 'Adjustable'
+    }
+  },
+  {
+    id: 41,
+    name: ' Unisex Religious Faith Jewelry',
+    category: 'accessories',
+    price: 3700,
+    oldPrice: 5802,
+    image: 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/8ea0975234c76dd274476de6be59f568.jpg?imageView2/2/w/800/q/70/format/avif',
+    rating: 4.6,
+    reviews: 178,
+    description: '1pc Classic Fashion Mens Cross Pendant Necklace, Unisex Religious Faith Jewelry Gift, Suitable For Any Occasion Wear',
+    inStock: true,
+    badge: 'sale',
+    specifications: {
+      'Material': 'Clear Lenses ',
+      'Compartments': 'Multiple',
+      'Closure': 'Zipper',
+      'Strap': 'Adjustable'
+    }
+  },
+  {
+    id: 42,
+    name: ' Unisex Religious Faith Jewelry',
+    category: 'accessories',
+    price: 3700,
+    oldPrice: 5802,
+    image: 'https://img.kwcdn.com/product/open/3f834111301147a091f732cf79abdff4-goods.jpeg?imageView2/2/w/800/q/70/format/avif',
+    rating: 4.6,
+    reviews: 178,
+    description: '1pc Classic Fashion Mens Cross Pendant Necklace, Unisex Religious Faith Jewelry Gift, Suitable For Any Occasion Wear',
+    inStock: true,
+    badge: 'sale',
+    specifications: {
+      'Material': 'Clear Lenses ',
+      'Compartments': 'Multiple',
+      'Closure': 'Zipper',
+      'Strap': 'Adjustable'
+    }
+  },
+  {
+    id: 43,
+    name: ' Handwoven Faux Leather Braided',
+    category: 'accessories',
+    price: 3500,
+    oldPrice: 5299,
+    image: 'https://img.kwcdn.com/product/fancy/86bca519-f5be-45b9-adc3-fe0ffe6bc1bf.jpg?imageView2/2/w/800/q/70/format/avif',
+    rating: 4.6,
+    reviews: 178,
+    description: 'Autumn-Winter Fashion All-in-One Leaf Alloy Accessory Handwoven Faux Leather Braided Unisex Outdoor Wear 4pcs Gift Box Set',
+    inStock: true,
+    badge: 'sale',
+    specifications: {
+      'Material': 'Clear Lenses ',
+      'Compartments': 'Multiple',
+      'Closure': 'Zipper',
+      'Strap': 'Adjustable'
+    }
+  },
+  {
+    id: 46,
+    name: 'A Pair of Ladies Claw-set Rhinestone Earrings',
+    category: 'accessories',
+    price: 3000,
+    oldPrice: 4299,
+    image: 'https://img.kwcdn.com/product/fancy/306d1ec4-dbc2-4394-a424-ec842f86142f.jpg?imageView2/2/w/800/q/70/format/avif',
+    rating: 4.6,
+    reviews: 178,
+    description: 'A Pair of Ladies Claw-set Rhinestone Earrings, Dazzling, Luxurious, Elegant, and Chic, Suitable for Wearing on Various Occasions',
+    inStock: true,
+    badge: 'sale',
+    specifications: {
+      'Material': 'Clear Lenses ',
+      'Compartments': 'Multiple',
+      'Closure': 'Zipper',
+      'Strap': 'Adjustable'
+    }
+  },
+  {
+    id: 46,
+    name: ' Vintage Artistic Plain Glass',
+    category: 'accessories',
+    price: 5000,
+    oldPrice: 7299,
+    image: 'https://img.kwcdn.com/product/open/28d8c9be5e3a44b69039b72128151557-goods.jpeg?imageView2/2/w/800/q/70/format/avif',
+    rating: 4.6,
+    reviews: 178,
+    description: '1 Pair of Vintage Artistic Plain Glasses - Minimalist Round Non- Frames, Black Frame - Unisex Daily and Formal Eyewear, Suitable for Daily Commuting',
     inStock: true,
     badge: 'sale',
     specifications: {
