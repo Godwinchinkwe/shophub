@@ -27,8 +27,9 @@ const Contact = () => {
             <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
             
             <div className="info-items">
-              <div className="info-item"><FaPhone /><div><h4>Phone</h4><p>+234 8064318819</p></div></div>
-              <div className="info-item"><FaEnvelope /><div><h4>Email</h4><p>Devodinakachi@gmail.com</p></div></div>
+              <div className="info-item"><FaPhone />
+              <div><h4>Phone</h4><a href="tel:+2348064318819">08064318819</a></div></div>
+              <div className="info-item"><FaEnvelope /><div><h4>Email</h4><a href="mailto:devodinakachi@gmail.com">Devodinakachi@gmail.com</a></div></div>
               <div className="info-item"><FaMapMarkerAlt /><div><h4>Address</h4><p>Airport Golden Tulip Hotel Airport Road</p></div></div>
               <div className="info-item"><FaClock /><div><h4>Hours</h4><p>Mon-Fri: 9AM-6PM</p></div></div>
             </div>

@@ -434,7 +434,7 @@ export const productsDatabase = [
     }
   },
   {
-    id: 46,
+    id: 47,
     name: ' Vintage Artistic Plain Glass',
     category: 'accessories',
     price: 5000,
