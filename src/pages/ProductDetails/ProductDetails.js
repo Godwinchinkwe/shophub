@@ -54,20 +54,19 @@ const ProductDetails = () => {
     setTimeout(() => setShowSuccess(false), 2000);
   };
 
-  const handleBuyNow = () => {
-    addToCart(product, quantity, selectedSize, selectedColor);
-    navigate('/checkout');
-  };
+const handleBuyNow = () => {
+  navigate('/checkout', {
+    state: {
+      directPurchase: {
+        product,
+        quantity,
+        selectedSize,
+        selectedColor
+      }
+    }
+  });
+};
 
-
-//     const handleWishlistToggle = (e) => {
-//  e.stopPropagation();
-//      if (inWishlist) {
-//        removeFromWishlist(product.id);
-//     } else {
-//       addToWishlist(product);
-//     }
-//   };
 
   return (
     <div className="product-details-page">
@@ -178,16 +177,6 @@ const ProductDetails = () => {
               >
                 Buy Now
               </motion.button>
-              {/* <motion.button
-                className={`btn-icon wishlist ${isInWishlist(product.id) ? 'active' : ''}`}
-                onClick={() => toggleWishlist(product)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }} */}
-                {/* // onClick={handleWishlistToggle} */}
-              {/* > */}
-                {/* {inWishlist ? <FiHeart /> : <FaRegHeart />} */}
-            
-              {/* </motion.button> */}
             </div>
 
             <AnimatePresence>

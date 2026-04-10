@@ -1,31 +1,104 @@
-// import React from 'react';
+
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-// import { motion } from 'framer-motion';
-import { useCart } from '../../context/CartContext';
-// import { FiTrash2, FiPlus, FiMinus, FiShoppingBag, FiCreditCard, FiDollarSign, FiCopy, FiCheck } from 'react-icons/fi';
-
-
-import { FiShoppingBag, FiCreditCard, FiDollarSign, FiCopy, FiCheck } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaTrash, FaPlus, FaMinus, FaShoppingCart } from 'react-icons/fa';
+import {
+  FaTrash,
+  FaPlus,
+  FaMinus,
+  FaShoppingCart,
+} from 'react-icons/fa';
+// import {
+//   FiShoppingBag,
+//   FiCopy,
+//   FiCheck,
+// } from 'react-icons/fi';
+import { useCart } from '../../context/CartContext';
 import './Cart.css';
 
+const WHATSAPP_NUMBER = '2348064318819';
+
 const Cart = () => {
-  const { cart = {},cartItems, removeFromCart, updateQuantity, getCartTotal } = useCart() || {}
-  // const { cart = [], removeFromCart, updateQuantity, getCartTotal, getCartCount } = useCart() || {};
+  const {
+    cartItems,
+    removeFromCart,
+    updateQuantity,
+    getCartTotal,
+    clearCart,
+  } = useCart();
 
-  const navigate = useNavigate();
-    const [showPaymentOptions, setShowPaymentOptions] = useState(false);
-  const [selectedPayment, setSelectedPayment] = useState('');
-  const [copiedAccount, setCopiedAccount] = useState(false);
+  const [showCheckoutModal, setShowCheckoutModal] = useState(false);
 
+  const [customerData, setCustomerData] = useState({
+    name: '',
+    phone: '',
+    address: '',
+  });
 
-  const shippingFee = cart.length > 0 ? 15.00 : 0;
   const subtotal = getCartTotal();
-  const total = subtotal + shippingFee;
 
-  if (cartItems.length === 0) {
+  const handleQuantityChange = (id, newQty) => {
+    updateQuantity(id, newQty);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setCustomerData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleCheckout = () => {
+    if (!cartItems.length) return;
+    setShowCheckoutModal(true);
+  };
+
+  const generateWhatsAppMessage = () => {
+    let message = `Hello, I would like to place an order.%0A%0A`;
+
+    message += `Customer Details:%0A`;
+    message += `Name: ${customerData.name}%0A`;
+    message += `Phone: ${customerData.phone}%0A`;
+    message += `Address: ${customerData.address}%0A%0A`;
+
+    message += `Order Items:%0A`;
+
+    cartItems.forEach((item, index) => {
+      message += `${index + 1}. ${item.name}%0A`;
+      message += `Qty: ${item.quantity}%0A`;
+      message += `Unit Price: ₦${Number(item.price).toLocaleString()}%0A`;
+      message += `Subtotal: ₦${Number(item.price * item.quantity).toLocaleString()}%0A%0A`;
+    });
+
+    message += `Total Amount: ₦${Number(subtotal).toLocaleString()}`;
+
+    return message;
+  };
+
+  const handleWhatsAppOrder = () => {
+    const { name, phone, address } = customerData;
+
+    if (!name || !phone || !address) {
+      alert('Please fill in all customer details.');
+      return;
+    }
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${generateWhatsAppMessage()}`;
+
+    window.open(whatsappUrl, '_blank');
+
+    clearCart();
+    setShowCheckoutModal(false);
+
+    setCustomerData({
+      name: '',
+      phone: '',
+      address: '',
+    });
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  if (!cartItems.length) {
     return (
       <div className="empty-cart">
         <div className="container">
@@ -40,73 +113,11 @@ const Cart = () => {
     );
   }
 
-   const handleCheckout = () => {
-    if (cart.length === 0) return;
-    setShowPaymentOptions(true);
-  };
-
-   const handlePaymentSelect = (method) => {
-    setSelectedPayment(method);
-  };
-
-   const handleCopyAccount = () => {
-    navigator.clipboard.writeText('1234567890');
-    setCopiedAccount(true);
-    setTimeout(() => setCopiedAccount(false), 2000);
-  };
-
-    const handleProceedPayment = () => {
-    if (selectedPayment === 'card') {
-      navigate('/checkout');
-    } else if (selectedPayment === 'bank') {
-      // In a real app, this would redirect to order confirmation
-      alert('Please make your bank transfer to the account number provided. Once payment is confirmed, your order will be processed.');
-    }
-  };
-
-    const bankInfo = {
-    accountName: "Godwin Odinakachi Chinkwe",
-    accountNumber: "8064318819",
-    bankName: "Paycom Opay ",
-    routingNumber: "987654321"
-  };
-
-   if (cart.length === 0) {
-    return (
-      <div className="cart-page">
-        <div className="container">
-          <motion.div 
-            className="empty-cart"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <FiShoppingBag className="empty-cart-icon" />
-            <h2>Your Cart is Empty</h2>
-            <p>Looks like you haven't added anything to your cart yet.</p>
-            <motion.button
-              className="btn btn-primary"
-              onClick={() => navigate('/products')}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Continue Shopping
-            </motion.button>
-          </motion.div>
-        </div>
-      </div>
-    );
-  }
-        function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-
   return (
     <div className="cart-page">
       <div className="container">
         <h1 className="page-title">Shopping Cart</h1>
-        
+
         <div className="cart-layout">
           <div className="cart-items">
             {cartItems.map((item) => (
@@ -117,18 +128,18 @@ const Cart = () => {
                 animate={{ opacity: 1, y: 0 }}
               >
                 <img src={item.image} alt={item.name} className="cart-item-image" />
-                
+
                 <div className="cart-item-details">
                   <h3>{item.name}</h3>
-                  <p className="cart-item-price">₦{item.price.toFixed(2)}</p>
+                  <p>₦{Number(item.price).toLocaleString()}</p>
                 </div>
 
                 <div className="cart-item-quantity">
-                  <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+                  <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>
                     <FaMinus />
                   </button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                  <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>
                     <FaPlus />
                   </button>
                 </div>
@@ -149,33 +160,25 @@ const Cart = () => {
 
           <div className="cart-summary">
             <h3>Order Summary</h3>
-            
+
             <div className="summary-row">
               <span>Subtotal</span>
-              <span> ₦{Number(getCartTotal().toFixed(2)).toLocaleString()}</span>
+              <span>₦{Number(subtotal).toLocaleString()}</span>
             </div>
-            
+
             <div className="summary-row">
               <span>Shipping</span>
               <span>FREE</span>
             </div>
-            
-            {/* <div className="summary-row">
-              <span>Tax</span>
-              <span> ₦{(getCartTotal() * 0.).toFixed(2)}</span>
-            </div> */}
-            
+
             <div className="summary-divider" />
-            
+
             <div className="summary-row summary-total">
               <span>Total</span>
-              <span> ₦{Number(getCartTotal() * 1.0).toLocaleString()}</span>
+              <span>₦{Number(subtotal).toLocaleString()}</span>
             </div>
 
-            <button
-              className="btn btn-primary checkout-btn"
-              onClick={handleCheckout}
-            >
+            <button className="btn btn-primary checkout-btn" onClick={handleCheckout}>
               Proceed to Order
             </button>
 
@@ -185,152 +188,56 @@ const Cart = () => {
           </div>
         </div>
 
-
-
-
-
-
-         <AnimatePresence>
-          {showPaymentOptions && (
+        <AnimatePresence>
+          {showCheckoutModal && (
             <motion.div
               className="payment-options-overlay"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setShowPaymentOptions(false)}
+              onClick={() => setShowCheckoutModal(false)}
             >
               <motion.div
                 className="payment-options-modal"
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                transition={{ duration: 0.3 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="payment-modal-header">
-                  <h2>Select Payment Method</h2>
-                  <button 
-                    className="close-modal-btn"
-                    onClick={() => setShowPaymentOptions(false)}
-                  >
-                    ×
-                  </button>
+                  <h2>Complete Your Order</h2>
+                  <button onClick={() => setShowCheckoutModal(false)}>×</button>
                 </div>
+                <div className="checkout-form">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Full Name"
+                      value={customerData.name}
+                      onChange={handleInputChange}
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone Number"
+                      value={customerData.phone}
+                      onChange={handleInputChange}
+                    />
+                    <textarea
+                      name="address"
+                      placeholder="Delivery Address"
+                      value={customerData.address}
+                      onChange={handleInputChange}
+                    />
+                  </div>
+                
 
-                <div className="payment-methods">
-                  {/* Credit/Debit Card Option */}
-                  <motion.div
-                    className={`payment-method-card ${selectedPayment === 'card' ? 'selected' : ''}`}
-                    onClick={() => handlePaymentSelect('card')}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="payment-method-icon">
-                      <FiCreditCard />
-                    </div>
-                    <div className="payment-method-content">
-                      <h3>Comfirm on Whatsapp</h3>
-                      {/* <p>Pay securely with your card</p> */}
-                    </div>
-                    <div className="payment-method-radio">
-                      <input
-                        type="radio"
-                        name="payment"
-                        checked={selectedPayment === 'card'}
-                        onChange={() => handlePaymentSelect('card')}
-                      />
-                    </div>
-                  </motion.div>
-
-                  {/* Bank Transfer Option */}
-                  <motion.div
-                    className={`payment-method-card ${selectedPayment === 'bank' ? 'selected' : ''}`}
-                    onClick={() => handlePaymentSelect('bank')}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="payment-method-icon">
-                      <FiDollarSign />
-                    </div>
-                    <div className="payment-method-content">
-                      <h3>Bank Transfer</h3>
-                      <p>Transfer directly to our bank account</p>
-                    </div>
-                    <div className="payment-method-radio">
-                      <input
-                        type="radio"
-                        name="payment"
-                        checked={selectedPayment === 'bank'}
-                        onChange={() => handlePaymentSelect('bank')}
-                      />
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Bank Transfer Details */}
-                <AnimatePresence>
-                  {selectedPayment === 'bank' && (
-                    <motion.div
-                      className="bank-transfer-details"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="bank-info-card">
-                        <h4>Bank Account Details</h4>
-                        
-                        <div className="bank-info-row">
-                          <span className="bank-label">Account Name:</span>
-                          <span className="bank-value">{bankInfo.accountName}</span>
-                        </div>
-
-                        <div className="bank-info-row">
-                          <span className="bank-label">Account Number:</span>
-                          <div className="bank-value-copy">
-                            <span className="bank-value">{bankInfo.accountNumber}</span>
-                            <motion.button
-                              className="copy-btn"
-                              onClick={handleCopyAccount}
-                              whileHover={{ scale: 1.05 }}
-                              whileTap={{ scale: 0.95 }}
-                            >
-                              {copiedAccount ? <FiCheck /> : <FiCopy />}
-                            </motion.button>
-                          </div>
-                        </div>
-
-                        <div className="bank-info-row">
-                          <span className="bank-label">Bank Name:</span>
-                          <span className="bank-value">{bankInfo.bankName}</span>
-                        </div>
-
-                        <div className="bank-info-row">
-                          <span className="bank-label">Routing Number:</span>
-                          <span className="bank-value">{bankInfo.routingNumber}</span>
-                        </div>
-
-                        <div className="bank-info-row amount-row">
-                          <span className="bank-label">Amount to Transfer:</span>
-                          <span className="bank-value amount">${total.toFixed(2)}</span>
-                        </div>
-
-                        <div className="bank-transfer-note">
-                          <p><strong>Important:</strong> Please include your order reference in the transfer description. You will receive a confirmation email with your order details.</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-                      <motion.button
-                  className={`btn btn-primary proceed-payment-btn ${!selectedPayment ? 'disabled' : ''}`}
-                  onClick={handleProceedPayment}
-                  disabled={!selectedPayment}
-                  whileHover={selectedPayment ? { scale: 1.02 } : {}}
-                  whileTap={selectedPayment ? { scale: 0.98 } : {}}
+                <button
+                  className="btn btn-primary proceed-payment-btn"
+                  onClick={handleWhatsAppOrder}
                 >
-                  {selectedPayment === 'card' ? 'Proceed to whatsapp' : 'Confirm Bank Transfer'}
-                </motion.button>
+                  Send Order to WhatsApp
+                </button>
               </motion.div>
             </motion.div>
           )}
@@ -341,5 +248,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-

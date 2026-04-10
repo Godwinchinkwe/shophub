@@ -1,39 +1,87 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-// import { motion } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
-import { FaCreditCard, FaLock } from 'react-icons/fa';
+import { FaWhatsapp } from 'react-icons/fa';
 import './Checkout.css';
+
+const WHATSAPP_NUMBER = '2348064318819';
 
 const Checkout = () => {
   const { cartItems, getCartTotal, clearCart } = useCart();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const directPurchase = location.state?.directPurchase;
+
+  const itemsToCheckout = directPurchase
+    ? [
+        {
+          ...directPurchase.product,
+          quantity: directPurchase.quantity,
+          selectedSize: directPurchase.selectedSize,
+          selectedColor: directPurchase.selectedColor,
+        },
+      ]
+    : cartItems;
+
+  const totalAmount = directPurchase
+    ? directPurchase.product.price * directPurchase.quantity
+    : getCartTotal();
+
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
+    fullName: '',
     phone: '',
     address: '',
     city: '',
-    zipCode: '',
-    cardNumber: '',
-    cardName: '',
-    expiryDate: '',
-    cvv: ''
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Order placed successfully!');
-    clearCart();
+
+    const { fullName, phone, address, city } = formData;
+
+    if (!fullName || !phone || !address || !city) {
+      alert('Please fill all required fields.');
+      return;
+    }
+
+    let message = `Hello, I would like to place an order.%0A%0A`;
+    message += `Customer Details:%0A`;
+    message += `Name: ${fullName}%0A`;
+    message += `Phone: ${phone}%0A`;
+    message += `Address: ${address}, ${city}%0A%0A`;
+    message += `Order Items:%0A`;
+
+    itemsToCheckout.forEach((item, index) => {
+      message += `${index + 1}. ${item.name}%0A`;
+      message += `Qty: ${item.quantity}%0A`;
+      if (item.selectedSize) message += `Size: ${item.selectedSize}%0A`;
+      if (item.selectedColor) message += `Color: ${item.selectedColor}%0A`;
+      message += `Price: ₦${Number(item.price).toLocaleString()}%0A`;
+      message += `Subtotal: ₦${Number(item.price * item.quantity).toLocaleString()}%0A%0A`;
+    });
+
+    message += `Total Amount: ₦${Number(totalAmount).toLocaleString()}`;
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+
+    window.open(whatsappUrl, '_blank');
+
+    if (!directPurchase) {
+      clearCart();
+    }
+
     navigate('/');
   };
 
-  if (cartItems.length === 0) {
+  if (!itemsToCheckout.length) {
     navigate('/cart');
     return null;
   }
@@ -41,62 +89,94 @@ const Checkout = () => {
   return (
     <div className="checkout-page">
       <div className="container">
-        <h1 className="page-title">Checkout</h1>
-        
-        <div className="checkout-layout">
-          <div className="checkout-form">
-            <form onSubmit={handleSubmit}>
-              <div className="form-section">
-                <h3>Shipping Information</h3>
-                <div className="form-grid">
-                  <input type="text" name="firstName" placeholder="First Name" required onChange={handleChange} />
-                  <input type="text" name="lastName" placeholder="Last Name" required onChange={handleChange} />
-                  <input type="email" name="email" placeholder="Email" required onChange={handleChange} />
-                  <input type="tel" name="phone" placeholder="Phone" required onChange={handleChange} />
-                </div>
-                <input type="text" name="address" placeholder="Address" required onChange={handleChange} />
-                <div className="form-grid">
-                  <input type="text" name="city" placeholder="City" required onChange={handleChange} />
-                  <input type="text" name="zipCode" placeholder="Zip Code" required onChange={handleChange} />
-                </div>
-              </div>
+        <h1 className="page-title">Complete Your Order</h1>
 
+        <div className="checkout-layout">
+          <div className="checkout-form-section">
+            <form onSubmit={handleSubmit} className="checkout-form">
               <div className="form-section">
-                <h3><FaCreditCard /> Payment Information</h3>
-                <input type="text" name="cardNumber" placeholder="Card Number" required onChange={handleChange} />
-                <input type="text" name="cardName" placeholder="Name on Card" required onChange={handleChange} />
-                <div className="form-grid">
-                  <input type="text" name="expiryDate" placeholder="MM/YY" required onChange={handleChange} />
-                  <input type="text" name="cvv" placeholder="CVV" required onChange={handleChange} />
-                </div>
+                <h3>Customer Information</h3>
+
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="Full Name"
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  required
+                />
+
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Delivery Address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  required
+                />
+
+                <input
+                  type="text"
+                  name="city"
+                  placeholder="City"
+                  value={formData.city}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <button type="submit" className="btn btn-primary submit-btn">
-                <FaLock /> Place Order -  ₦{(getCartTotal() * 1.1).toFixed(2)}
+                <FaWhatsapp /> Send Order to WhatsApp
               </button>
             </form>
           </div>
 
           <div className="order-summary">
             <h3>Order Summary</h3>
+
             <div className="summary-items">
-              {cartItems.map(item => (
+              {itemsToCheckout.map((item) => (
                 <div key={item.id} className="summary-item">
                   <img src={item.image} alt={item.name} />
+
                   <div>
                     <p>{item.name}</p>
                     <span>Qty: {item.quantity}</span>
                   </div>
-                  <span className="item-price"> ₦{Number(item.price * item.quantity).toFixed(2).toLocaleString()}</span>
+
+                  <span className="item-price">
+                    ₦{Number(item.price * item.quantity).toLocaleString()}
+                  </span>
                 </div>
               ))}
             </div>
+
             <div className="summary-totals">
-              <div className="summary-row"><span>Subtotal</span><span> ₦{Number(getCartTotal)().toFixed(2).toLocaleString()}</span></div>
-              <div className="summary-row"><span>Shipping</span><span>FREE</span></div>
-              <div className="summary-row"><span>Tax</span><span> ₦{(getCartTotal() * 0.0).toFixed(2)}</span></div>
+              <div className="summary-row">
+                <span>Subtotal</span>
+                <span>₦{Number(totalAmount).toLocaleString()}</span>
+              </div>
+
+              <div className="summary-row">
+                <span>Shipping</span>
+                <span>FREE</span>
+              </div>
+
               <div className="summary-divider" />
-              <div className="summary-row summary-total"><span>Total</span><span> ₦{Number(getCartTotal() * 1.1).toFixed(2).toLocaleString()}</span></div>
+
+              <div className="summary-row summary-total">
+                <span>Total</span>
+                <span>₦{Number(totalAmount).toLocaleString()}</span>
+              </div>
             </div>
           </div>
         </div>
