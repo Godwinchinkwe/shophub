@@ -8,11 +8,7 @@ import {
   FaMinus,
   FaShoppingCart,
 } from 'react-icons/fa';
-// import {
-//   FiShoppingBag,
-//   FiCopy,
-//   FiCheck,
-// } from 'react-icons/fi';
+
 import { useCart } from '../../context/CartContext';
 import './Cart.css';
 
@@ -36,6 +32,7 @@ const Cart = () => {
   });
 
   const subtotal = getCartTotal();
+  
 
   const handleQuantityChange = (id, newQty) => {
     updateQuantity(id, newQty);
@@ -52,23 +49,34 @@ const Cart = () => {
   };
 
   const generateWhatsAppMessage = () => {
-    let message = `Hello, I would like to place an order.%0A%0A`;
+    let message = `Hello, I would like to place an order✅✅.%0A%0A`;
 
-    message += `Customer Details:%0A`;
+    message += `*Customer Details*:%0A`;
     message += `Name: ${customerData.name}%0A`;
     message += `Phone: ${customerData.phone}%0A`;
     message += `Address: ${customerData.address}%0A%0A`;
 
-    message += `Order Items:%0A`;
+    message += `*Order Items*:%0A`;
 
     cartItems.forEach((item, index) => {
       message += `${index + 1}. ${item.name}%0A`;
       message += `Qty: ${item.quantity}%0A`;
+       message += `Product Image: ${window.location.origin}${item.image}%0A`;
       message += `Unit Price: ₦${Number(item.price).toLocaleString()}%0A`;
       message += `Subtotal: ₦${Number(item.price * item.quantity).toLocaleString()}%0A%0A`;
     });
 
-    message += `Total Amount: ₦${Number(subtotal).toLocaleString()}`;
+      message += `-----------------------------------%0A`;
+  message += `*PAYMENT SUMMARY*%0A`;
+  // message += `Subtotal: ₦${Number(totalAmount).toLocaleString()}%0A`;
+  message += `Delivery: Based on Location%0A`;
+  message += `*TOTAL: ₦${Number(subtotal).toLocaleString()}*%0A%0A`;
+
+  // FOOTER
+  message += `Thank you for shopping with us! 🙏`;
+
+    // message += `Total Amount: ₦${Number(subtotal).toLocaleString()}`;
+    
 
     return message;
   };
