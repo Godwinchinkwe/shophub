@@ -61,12 +61,12 @@ const Cart = () => {
     cartItems.forEach((item, index) => {
       message += `${index + 1}. ${item.name}%0A`;
       message += `Qty: ${item.quantity}%0A`;
-       message += `Product Image: ${window.location.origin}${item.image}%0A`;
+      //  message += `Product Image: ${window.location.origin}${item.image}%0A`;
       message += `Unit Price: ₦${Number(item.price).toLocaleString()}%0A`;
       message += `Subtotal: ₦${Number(item.price * item.quantity).toLocaleString()}%0A%0A`;
     });
 
-      message += `-----------------------------------%0A`;
+      message += `---------------------------------------%0A`;
   message += `*PAYMENT SUMMARY*%0A`;
   // message += `Subtotal: ₦${Number(totalAmount).toLocaleString()}%0A`;
   message += `Delivery: Based on Location%0A`;

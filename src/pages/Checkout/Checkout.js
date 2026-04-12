@@ -64,7 +64,7 @@ const Checkout = () => {
       message += `Qty: ${item.quantity}%0A`;
       if (item.selectedSize) message += `Size: ${item.selectedSize}%0A`;
       if (item.selectedColor) message += `Color: ${item.selectedColor}%0A`;
-      message += `Product Image: ${window.location.origin}${item.image}%0A`;
+      // message += `Product Image: ${window.location.origin}${item.image}%0A`;
       message += `Price: ₦${Number(item.price).toLocaleString()}%0A`;
       message += `Subtotal: ₦${Number(item.price * item.quantity).toLocaleString()}%0A%0A`;
       // if (item.image) {
@@ -73,7 +73,7 @@ const Checkout = () => {
        message += `%0A`;
     });
       // PAYMENT SUMMARY
-  message += `------------------------%0A`;
+  message += `------------------------------------%0A`;
   message += `*PAYMENT SUMMARY*%0A`;
   // message += `Subtotal: ₦${Number(totalAmount).toLocaleString()}%0A`;
   message += `Delivery: FREE%0A`;
