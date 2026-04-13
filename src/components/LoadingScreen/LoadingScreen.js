@@ -16,7 +16,7 @@ const LoadingScreen = () => {
     >
       <div className="loader">
         <div className="loader-icon">🏨</div>
-        <div className="loader-text"><h1>Geehub Shopping Plaza</h1></div>
+        <div className="loader-text"><h1>GeeLuxe Online Store</h1></div>
       </div>
     </motion.div>
   );
