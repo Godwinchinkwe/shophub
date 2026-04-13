@@ -60,7 +60,7 @@ const Header = () => {
             {/* Logo */}
             <Link onClick={scrollToTop} to="/" className="logo">
               <FaShoppingBag />
-              <span>GeeHub</span>
+              <span>GeeLuxe</span>
             </Link>
 
             {/* Search */}

@@ -73,7 +73,7 @@ const Footer = () => {
             <div className="footer-column">
               <div className="footer-logo">
                 <FaShoppingBag />
-                <span>GeeHub</span>
+                <span>GeeLuxe</span>
               </div>
               <p className="footer-description">
                 Your one-stop online shopping destination for electronics, fashion, 
@@ -142,7 +142,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="container">
           <div className="footer-bottom-content">
-            <p>&copy; 2026 GeeHub. All rights reserved.</p>
+            <p>&copy; 2026 GeeLuxe. All rights reserved.</p>
             <div className="footer-bottom-links">
               <Link onClick={scrollToTop} to="/faq">Privacy Policy</Link>
               <Link onClick={scrollToTop} to="/faq">Terms of Service</Link>
