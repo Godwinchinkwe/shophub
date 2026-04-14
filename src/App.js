@@ -66,7 +66,7 @@ function App() {
         newestOnTop
         closeOnClick
         pauseOnHover
-        theme="dark"
+        theme="Dark"
       />
             </>
         )}

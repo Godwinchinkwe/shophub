@@ -5,7 +5,7 @@ import './About.css';
 
 const About = () => {
   const features = [
-    { icon: <FaRocket />, title: 'Fast Shipping', desc: 'Quick delivery to your doorstep' },
+    { icon: <FaRocket />, title: 'Fast Delivery', desc: 'Quick delivery to your doorstep' },
     { icon: <FaUsers />, title: 'Customer First', desc: 'Your satisfaction is our priority' },
     { icon: <FaAward />, title: 'Quality Products', desc: 'Only the best for our customers' },
     { icon: <FaHeart />, title: 'Trusted Brand', desc: 'Loved by thousands of customers' }
@@ -15,15 +15,15 @@ const About = () => {
     <div className="about-page">
       <div className="container">
         <motion.h1 className="page-title" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          About ShopHub
+          About GeeLuxe
         </motion.h1>
         
         <motion.div className="about-content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
           <div className="about-text">
             <h2>Your Trusted Online Shopping Destination</h2>
-            <p>Welcome to ShopHub, where quality meets convenience. Since our founding, we've been committed to providing our customers with the best products at competitive prices.</p>
-            <p>We offer a wide range of products across multiple categories including electronics, fashion, home goods, and more. Our mission is to make online shopping easy, enjoyable, and accessible for everyone.</p>
-            <p>With thousands of satisfied customers worldwide, we continue to grow and improve our services every day. Thank you for choosing ShopHub as your preferred shopping destination.</p>
+            <p>Welcome to GeeLuxe, where quality meets convenience. Since our founding, we've been committed to providing our customers with the best products at competitive prices.</p>
+            <p>We offer a wide range of products across multiple categories including Luxury Wrist Watches, Accessories, fashion, home goods, and more. Our mission is to make online shopping easy, enjoyable, and accessible for everyone.</p>
+            <p>With Hundreds of satisfied customers Nationwide, we continue to grow and improve our services every day. Thank you for choosing GeeLuxe as your preferred shopping destination.</p>
           </div>
           
           <div className="about-image">

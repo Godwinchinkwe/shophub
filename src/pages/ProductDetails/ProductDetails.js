@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-// import { FiHeart, FiShoppingCart, FiZoomIn, FiX, FiStar,} from 'react-icons/fi';
 import { FiShoppingCart, FiZoomIn, FiX, FiStar,} from 'react-icons/fi';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../context/CartContext';
@@ -11,9 +10,7 @@ import './ProductDetails.css';
 const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  // const { addToCart, toggleWishlist,  isInWishlist } = useCart();
   const { addToCart } = useCart();
-    // const inWishlist = isInWishlist(product.id);
 
   const product = productsDatabase.find(p => p.id === parseInt(id));
   
