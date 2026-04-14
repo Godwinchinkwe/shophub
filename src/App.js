@@ -15,6 +15,8 @@ import FAQ from './pages/FAQ/FAQ';
 import Whatsapp from './components/Whatsapp/Whatsapp';
 import { AnimatePresence } from 'framer-motion';
 import LoadingScreen from './components/LoadingScreen/LoadingScreen';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 function App() {
@@ -57,6 +59,15 @@ function App() {
             </Routes>
           </main>
           <Footer />
+             <ToastContainer 
+        position="top-right"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        theme="dark"
+      />
             </>
         )}
         </div>

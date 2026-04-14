@@ -59,7 +59,7 @@ export const productsDatabase = [
     image: round,
     rating: 4.7,
     reviews: 289,
-    description: '4pcs New Mens Luxury Fashion Round Quartz Watch and Braided Bracelet Combo Set for Daily Wear, Parties, Valentines Day, Men, Dad, Gift for Friends and Family. Gift Box Not Included',
+    description: '4pcs New Mens Luxury Fashion Round Quartz Watch and Braided Bracelet Combo Set for Daily Wear, Parties, Valentines Day, Men, Dad, Gift for Friends and Family. Gift Box Not Included.Designed for men who want to look sharp, confident, and successful.',
     inStock: true,
     badge: 'new',
     specifications: {
@@ -116,7 +116,7 @@ export const productsDatabase = [
     image: watch5,
     rating: 4.6,
     reviews: 512,
-    description: '4pcs/set, Men-s Business Fashion Yellow Digital English Small Dial Pointer Round Quartz Watch & Brown Beads Woven String Bracelet Set, Gift for Him',
+    description: '4pcs/set, Men-s Business Fashion Yellow Digital English Small Dial Pointer Round Quartz Watch & Brown Beads Woven String Bracelet Set, Gift for Him.Designed for men who want to look sharp, confident, and successful.',
     inStock: true,
     badge: 'sales',
     specifications: {
@@ -135,7 +135,7 @@ export const productsDatabase = [
     image: watch7,
     rating: 4.6,
     reviews: 512,
-    description: '2pcs/Set Exquisite MenS Quartz Timepieces And Fashionable Stainless Steel Watch Chains - Fashionable, Durable, - Perfect Gift for ValentineS Day, FatherS Day for Dad Or Boyfriend',
+    description: '2pcs/Set Exquisite MenS Quartz Timepieces And Fashionable Stainless Steel Watch Chains - Fashionable, Durable, - Perfect Gift for ValentineS Day, FatherS Day for Dad Or Boyfriend.Designed for men who want to look sharp, confident, and successful.',
     inStock: true,
     badge: 'sales',
     specifications: {
@@ -154,7 +154,7 @@ export const productsDatabase = [
     image: watch6,
     rating: 4.6,
     reviews: 512,
-    description: '2pcs/Set Exquisite MenS Quartz Timepieces And Fashionable Stainless Steel Watch Chains - Fashionable, Durable, - Perfect Gift for ValentineS Day, FatherS Day for Dad Or Boyfriend',
+    description: '2pcs/Set Exquisite MenS Quartz Timepieces And Fashionable Stainless Steel Watch Chains - Fashionable, Durable, - Perfect Gift for ValentineS Day, FatherS Day for Dad Or Boyfriend.Designed for men who want to look sharp, confident, and successful.',
     inStock: true,
     badge: 'sale',
     specifications: {
@@ -233,7 +233,7 @@ export const productsDatabase = [
     image: 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/fe8e0d36932e182e5899d04d2ab53862.jpg?imageView2/2/w/800/q/70/format/avif',
     rating: 4.4,
     reviews: 234,
-    description: 'Mens 4pcs Mobius Loop Denim Faux Leather Bracelet Set - Vintage Infinity Bead Multi-Layer Band for Rock & Carnival Fashion, Band, Faux Leather',
+    description: 'Mens 4pcs Mobius Loop Denim Faux Leather Bracelet Set - Vintage Infinity Bead Multi-Layer Band for Rock & Carnival Fashion, Band, Faux Leather. Designed for men who want to look sharp, confident, and successful.' ,
     inStock: true,
     badge: 'sale',
     specifications: {
@@ -252,7 +252,7 @@ export const productsDatabase = [
     image: 'https://img.kwcdn.com/product/open/371c91514ca04905ba7c04dfe1fc9ee2-goods.jpeg?imageView2/2/w/800/q/70/format/avif',
     rating: 4.5,
     reviews: 189,
-    description: 'Retro Minimalist Style Blue Light Blocking Glasses with Square Frames And Imitation Wood Grain Temples',
+    description: 'Retro Minimalist Style Blue Light Blocking Glasses with Square Frames And Imitation Wood Grain Temples. Designed to Reduce Eye Strain from Digital Screens, These Glasses Are Perfect for Both Work and Leisure. Suitable for Men and Women.',
     inStock: true,
     badge: 'new',
     specifications: {

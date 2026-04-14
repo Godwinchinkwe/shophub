@@ -43,6 +43,7 @@ const ProductDetails = () => {
     );
   }
 
+
   const images = [product.image, product.image, product.image, product.image];
   const relatedProducts = productsDatabase
     .filter(p => p.category === product.category && p.id !== product.id)
@@ -163,10 +164,11 @@ const handleBuyNow = () => {
 
               <motion.button
                 className="btn btn-success buy-now"
-                onClick={handleBuyNow}
+                onClick={() => {handleBuyNow();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+}}
                 whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
+                whileTap={{ scale: 0.98 }}>
                 Buy Now
               </motion.button>
 

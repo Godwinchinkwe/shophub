@@ -4,7 +4,9 @@ import {
   FaFacebook, 
   FaTwitter, 
   FaInstagram, 
-  FaYoutube,
+  // FaYoutube,
+  // FaYoutube,
+  FaTiktok,
   FaShoppingBag,
   FaCreditCard,
   FaShieldAlt,
@@ -90,7 +92,7 @@ const Footer = () => {
                   <FaInstagram />
                 </a>
                 <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                  <FaYoutube />
+                  <FaTiktok />
                 </a>
               </div>
             </div>

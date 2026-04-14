@@ -52,7 +52,7 @@ const Checkout = () => {
       return;
     }
 
-    let message = `Hello, I would like to place an order.%0A%0A`;
+    let message = `Hello✨, I would like to place an order.%0A%0A`;
     message += `Customer Details:%0A`;
     message += `Name: ${fullName}%0A`;
     message += `Phone: ${phone}%0A`;

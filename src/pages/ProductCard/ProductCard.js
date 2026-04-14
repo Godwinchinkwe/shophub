@@ -5,6 +5,7 @@ import { useCart } from '../../context/CartContext';
 import { FaShoppingCart, FaHeart, FaStar, FaRegHeart } from 'react-icons/fa';
 import './ProductCard.css';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 // import { useState } from 'react';
 
 const ProductCard = ({ product }) => {
@@ -16,18 +17,21 @@ const ProductCard = ({ product }) => {
   //   addToCart(product);
   // };
 
-  const handleAddToCart = (e) => {
-   e.stopPropagation();
-     addToCart(product);
-   };
+  // const handleAddToCart = (e) => {
+  //  e.stopPropagation();
+  //    addToCart(product);
+  //  };
 
-  // const handleWishlistToggle = () => {
-  //   if (inWishlist) {
-  //     removeFromWishlist(product.id);
-  //   } else {
-  //     addToWishlist(product);
-  //   }
-  // };
+  const handleAddToCart = (e) => {
+  e.stopPropagation();
+  addToCart(product);
+
+  toast.success(`${product.name} added to cart 🛒`, {
+    position: "top-right",
+  });
+};
+
+
 
   const handleWishlistToggle = (e) => {
  e.stopPropagation();
