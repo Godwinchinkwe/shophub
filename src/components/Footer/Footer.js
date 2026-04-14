@@ -50,8 +50,8 @@ const Footer = () => {
             <div className="feature-item">
               <FaCreditCard className="feature-icon" />
               <div>
-                <h4>Easy Returns</h4>
-                <p>2-3days return policy</p>
+                <h4>Premium Quality</h4>
+                <p>Guaranteed</p>
               </div>
             </div>
             <div className="feature-item">

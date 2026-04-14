@@ -21,7 +21,7 @@ export const productsDatabase = [
     image: watch1,
     rating: 4.5,
     reviews: 342,
-    description: 'Romantic Business Leisure Roman Scale Pointer Quartz Watch Set Suitable for Couples Daily Decoration Girlfriend Boyfriend Birthday Gift Graduation Season Party Christmas Halloween Valentines Day Perfect Gift for Girlfriend',
+    description: 'This isn’t just a watch — it’s a statement. Romantic Business Leisure Roman Scale Pointer Quartz Watch Set Suitable for Couples Daily Decoration Girlfriend Boyfriend Birthday Gift Graduation Season Party Christmas Halloween Valentines Day Perfect Gift for Girlfriend',
     inStock:true,
     badge: 'sale',
     specifications: {
@@ -40,7 +40,7 @@ export const productsDatabase = [
     image: watch3,
     rating: 4.5,
     reviews: 342,
-    description: 'Luxury Quartz Watch with Roman Numerals, Date & Day Display, Green Dial & Golden-Tone Markers, -Accented Zinc Alloy Case & Bracelet, Casual & Formal Business Watch, Suitable for Women&women',
+    description: 'Luxury Quartz Watch with Roman Numerals, Date & Day Display, Green Dial & Golden-Tone Markers, -Accented Zinc Alloy Case & Bracelet, Casual & Formal Business Watch, Suitable for Women&women This isn’t just a watch — it’s a statement. This isn’t just a watch — it’s a statement. ',
     inStock:true,
     badge: 'sale',
     specifications: {
@@ -78,7 +78,7 @@ export const productsDatabase = [
     image: watch2,
     rating: 4.8,
     reviews: 156,
-    description:'A Stylish And Elegant Quartz Watch Featuring a Round Display, Complemented by a Fashionable Plastic Strap. with Its Electronic Movement, It Is Precise And Durable ma',
+    description:'A Stylish And Elegant Quartz Watch Featuring a Round Display, Complemented by a Fashionable Plastic Strap. with Its Electronic Movement, It Is Precise And Durable. Designed for men who want to look sharp, confident, and successful',
     inStock: true,
     badge: 'new',
     specifications: {
@@ -97,7 +97,7 @@ export const productsDatabase = [
     image: watch4,
     rating: 4.6,
     reviews: 512,
-    description: 'Set of 4 MenS Stylish Watches, Designed for Business, Featuring an Alloy Case, Quartz Movement, Faux Leather And Alloy Straps, Powered by a Non-Rechargeable Button Battery, an Ideal Present for Holidays And FatherS Day',
+    description: 'Set of 4 MenS Stylish Watches, Designed for Business, Featuring an Alloy Case, Quartz Movement, Faux Leather And Alloy Straps, Powered by a Non-Rechargeable Button Battery, an Ideal Present for Holidays And FatherS Day. Designed for men who want to look sharp, confident, and successful',
     inStock: true,
     badge: 'bestseller',
     specifications: {

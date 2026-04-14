@@ -160,14 +160,6 @@ const handleBuyNow = () => {
             </div>
 
             <div className="action-buttons">
-              <motion.button
-                className="btn btn-primary add-to-cart"
-                onClick={handleAddToCart}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <FiShoppingCart /> Add to Cart
-              </motion.button>
 
               <motion.button
                 className="btn btn-success buy-now"
@@ -177,6 +169,16 @@ const handleBuyNow = () => {
               >
                 Buy Now
               </motion.button>
+
+                <motion.button
+                className="btn btn-primary add-to-cart"
+                onClick={handleAddToCart}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <FiShoppingCart /> Add to Cart
+              </motion.button>
+
             </div>
 
             <AnimatePresence>

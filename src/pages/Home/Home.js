@@ -92,7 +92,7 @@ const Home = () => {
                 <p>Save up to 40% on selected watches</p>
                 <Link onClick={scrollToTop}
                    to="/products?category=watches" className="btn btn-primary">
-                  Shop Watches
+                  Buy Now
                 </Link>
               </div>
             </motion.div>
@@ -125,7 +125,7 @@ const Home = () => {
                 <h3>Home Essentials</h3>
                 <p>Upgrade your living space</p>
                 <Link to="/products?category=home" className="btn btn-outline">
-                  Shop Now
+                  Buy Now
                 </Link>
               </div>
             </motion.div>
